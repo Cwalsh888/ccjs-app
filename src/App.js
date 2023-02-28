@@ -11,7 +11,7 @@ function App() {
    }, []);
 
    useEffect(() => {
-    fetch(`https://signup.com/api/events/?selected_activity=3424432&activity_id=3424432&accesskey=6775657374&startdate=2023-02-19&enddate=2023%2F06%2F30&_=1676943616038`)
+    fetch(`http://localhost:5000/getData`)
      .then(response => response.json())
      .then(result => console.log(result))
      .catch(error => console.log(error.message));
