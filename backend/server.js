@@ -10,7 +10,7 @@ const app = express();
 
 app.use(cors());
 const corsOptions = {
-    origin: "http://localhost:3000"
+    origin: ["http://localhost:3000", "https://ccjs.onrender.com"]
 };
 
 // const requestEndpoint = "https://xkcd.com/327/info.0.json";
