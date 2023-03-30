@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Container } from './styled';
 
 const Homepage = () => {
- // To-do:
+  // To-do:
   // 1. Figure out how to have backend local server up forever for real site.
   // 2. Gonna need a loading spinner for all these slow api calls
 
