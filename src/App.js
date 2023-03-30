@@ -1,10 +1,22 @@
 import { useEffect, useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  // To-do:
+  // 1. Figure out how to have backend local server up forever for real site.
+  // 2. Gonna need a loading spinner for all these slow api calls
+
   let [data, setData] = useState([]);
   let [newData, setNewData] = useState([]);
+  let [todaysData, setTodaysData] = useState({});
+
+  const date = new Date();
+
+  let day = date.getDate();
+  let month = (date.getMonth() + 1).toString().padStart(2, '0');
+  let year = date.getFullYear();
+
+  let today = `${year}-${month}-${day}`;
 
   useEffect(() => {
     fetch(`http://localhost:5000/getData`)
@@ -15,7 +27,6 @@ function App() {
 
    useEffect(() => {
     if (data.length > 0) {
-      // console.log(data);
       setNewData(data.map(ele => {
         const container = {};
 
@@ -52,31 +63,32 @@ function App() {
 
         return container;
       }));
-      console.log(newData);
     }
-   }, [data])
+   }, [data]);
 
-  // Have all the data sent over now!
-  // Just need to work on displaying it!
-  // Yaaaayyy!
+   useEffect(() => {
+    if (newData) {
+      setTodaysData(newData.find(item => item.date === today));
+    }
+   }, [newData]);
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-          Let's see how fast this updates. 
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        Today's date is {todaysData?.date}
+      </div>
+      <div>
+        We have {todaysData?.setupVan ? todaysData?.setupVan : 0 } folks on setup!
+      </div>
+      <div>
+        We have {todaysData?.otgFirstShift + todaysData?.drivingFirstShift} folks on 1st shift! 
+      </div>
+      <div>
+        We have {todaysData?.otgSecondShift + todaysData?.drivingSecondShift} folks on 2nd shift!
+      </div>
+      <div>
+        We have {todaysData?.breakdownVan ? todaysData?.breakdownVan : 0 } folks on breakdown!
+      </div>
     </div>
   );
 }
