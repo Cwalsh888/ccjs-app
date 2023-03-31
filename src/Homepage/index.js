@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Container } from './styled';
+import { Card, CardBox, Container } from './styled';
 
 const Homepage = () => {
   // To-do:
@@ -77,18 +77,20 @@ const Homepage = () => {
       <div>
         Today's date is {todaysData?.date}
       </div>
-      <div>
-        We have {todaysData?.setupVan ? todaysData?.setupVan : 0 } folks on setup!
-      </div>
-      <div>
-        We have {todaysData?.otgFirstShift + todaysData?.drivingFirstShift} folks on 1st shift! 
-      </div>
-      <div>
-        We have {todaysData?.otgSecondShift + todaysData?.drivingSecondShift} folks on 2nd shift!
-      </div>
-      <div>
-        We have {todaysData?.breakdownVan ? todaysData?.breakdownVan : 0 } folks on breakdown!
-      </div>
+      <CardBox>
+        <Card>
+          We have {todaysData?.setupVan ? todaysData?.setupVan : 0 } folks on setup!
+        </Card>
+        <Card>
+          We have {todaysData?.otgFirstShift + todaysData?.drivingFirstShift} folks on 1st shift! 
+        </Card>
+        <Card>
+          We have {todaysData?.otgSecondShift + todaysData?.drivingSecondShift} folks on 2nd shift!
+        </Card>
+        <Card>
+          We have {todaysData?.breakdownVan ? todaysData?.breakdownVan : 0 } folks on breakdown!
+        </Card>
+      </CardBox>
     </Container>
   );
 }
