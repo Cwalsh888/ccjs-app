@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Card, CardBox, Container } from './styled';
+import { Container, NavigationBox, NavButton } from './styled';
+import CurrentInfo from '../Pages/CurrentInfo';
+import Historical from '../Pages/Historical';
+import FunFacts from '../Pages/FunFacts';
+import About from '../Pages/About';
 
-const Homepage = () => {
+const Main = () => {
   // To-do:
   // 1. Figure out how to have backend local server up forever for real site.
   // 2. Gonna need a loading spinner for all these slow api calls
@@ -9,6 +13,7 @@ const Homepage = () => {
   let [data, setData] = useState([]);
   let [newData, setNewData] = useState([]);
   let [todaysData, setTodaysData] = useState({});
+  let [page, setPage] = useState('currentInfo');
 
   const date = new Date();
 
@@ -23,9 +28,9 @@ const Homepage = () => {
      .then(response => response.json())
      .then(result => setData(result.data))
      .catch(error => console.log(error.message));
-   }, []);
+  }, []);
 
-   useEffect(() => {
+  useEffect(() => {
     if (data.length > 0) {
       setNewData(data.map(ele => {
         const container = {};
@@ -64,35 +69,47 @@ const Homepage = () => {
         return container;
       }));
     }
-   }, [data]);
+  }, [data]);
 
-   useEffect(() => {
+  useEffect(() => {
     if (newData) {
       setTodaysData(newData.find(item => item.date === today));
     }
-   }, [newData]);
+  }, [newData, today]);
 
+  
   return (
-    <Container>
-      <div>
-        Today's date is {todaysData?.date}
-      </div>
-      <CardBox>
-        <Card>
-          We have {todaysData?.setupVan ? todaysData?.setupVan : 0 } folks on setup!
-        </Card>
-        <Card>
-          We have {todaysData?.otgFirstShift + todaysData?.drivingFirstShift} folks on 1st shift! 
-        </Card>
-        <Card>
-          We have {todaysData?.otgSecondShift + todaysData?.drivingSecondShift} folks on 2nd shift!
-        </Card>
-        <Card>
-          We have {todaysData?.breakdownVan ? todaysData?.breakdownVan : 0 } folks on breakdown!
-        </Card>
-      </CardBox>
+    <Container>   
+      {(() => {
+        switch (page) {
+          case 'currentInfo':
+            return <CurrentInfo todaysData={todaysData} />
+          case 'historical':
+            return <Historical todaysData={todaysData} />
+          case 'funFacts':
+            return <FunFacts todaysData={todaysData} />
+          case 'about':
+            return <About todaysData={todaysData} />
+          default:
+            return null
+        }
+      })()}
+      <NavigationBox>
+        <NavButton onClick={() => setPage('currentInfo')}>
+          First button.
+        </NavButton>
+        <NavButton onClick={() => setPage('historical')}>
+          Second button.
+        </NavButton>
+        <NavButton onClick={() => setPage('funFacts')}>
+          Third button.
+        </NavButton>
+        <NavButton onClick={() => setPage('about')}>
+          Fourth button.
+        </NavButton>
+      </NavigationBox>
     </Container>
   );
 }
 
-export default Homepage;
+export default Main;
