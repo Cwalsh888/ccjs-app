@@ -7,16 +7,16 @@ export const Container = styled.div`
   border: 5px solid red; 
 `;
 
-export const CardBox = styled.div`
+export const FlexBox = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   width: 100%;
-  height: 50%;
   border: 10px solid blue;
 `;
 
-export const Card = styled.div`
-  width: 40%;
-  border: 5px solid purple;
+export const FlexItems = styled.div`
+  flex: 1 0 14%;
+  border: 1px solid purple;
+  background-color: ${props => props.fullDay ? 'green' : 'red'};
 `;
