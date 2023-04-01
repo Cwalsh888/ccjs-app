@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Container, NavigationBox, NavButton } from './styled';
+import { Container, PageContainer, NavigationBox, NavButton } from './styled';
 import CurrentInfo from '../Pages/CurrentInfo';
 import Historical from '../Pages/Historical';
 import FunFacts from '../Pages/FunFacts';
@@ -17,23 +17,22 @@ const Main = () => {
 
   const date = new Date();
 
-  let day = date.getDate();
+  let day = date.getDate().toString().padStart(2, '0');
   let month = (date.getMonth() + 1).toString().padStart(2, '0');
   let year = date.getFullYear();
 
   let today = `${year}-${month}-${day}`;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/getData`)
+    fetch(`https://ccjs-server.onrender.com/getData`)
      .then(response => response.json())
      .then(result => setData(result.data))
      .catch(error => console.log(error.message));
   }, []);
 
   useEffect(() => {
-    console.log(data);
     if (data.length > 0) {
-      setNewData(data.map((ele) => {
+      setNewData(data.map(ele => {
         const container = {};
 
         let setup = ele.jobs.find(ele => ele.name === 'set up')?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
@@ -78,28 +77,29 @@ const Main = () => {
 
   useEffect(() => {
     if (newData) {
-      console.log(newData);
       setTodaysData(newData.find(item => item.date === today));
     }
   }, [newData, today]);
 
   
   return (
-    <Container>   
-      {(() => {
-        switch (page) {
-          case 'currentInfo':
-            return <CurrentInfo todaysData={todaysData} />
-          case 'historical':
-            return <Historical newData={newData} />
-          case 'funFacts':
-            return <FunFacts todaysData={todaysData} />
-          case 'about':
-            return <About todaysData={todaysData} />
-          default:
-            return null
-        }
-      })()}
+    <Container>
+      <PageContainer>   
+        {(() => {
+          switch (page) {
+            case 'currentInfo':
+              return <CurrentInfo todaysData={todaysData} />
+            case 'historical':
+              return <Historical newData={newData} />
+            case 'funFacts':
+              return <FunFacts todaysData={todaysData} />
+            case 'about':
+              return <About todaysData={todaysData} />
+            default:
+              return null
+          }
+        })()}
+      </PageContainer>
       <NavigationBox>
         <NavButton onClick={() => setPage('currentInfo')}>
           First button.

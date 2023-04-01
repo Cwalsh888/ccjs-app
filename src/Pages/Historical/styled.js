@@ -13,6 +13,7 @@ export const FlexBox = styled.div`
   justify-content: space-around;
   width: 100%;
   border: 10px solid blue;
+  padding-bottom: 10%;
 `;
 
 export const FlexItems = styled.div`
