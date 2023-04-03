@@ -11,5 +11,8 @@ export const CardBox = styled.div`
 
 export const Card = styled.div`
   width: 40%;
-  border: 5px solid purple;
+  border: 5px solid ${props => props.satisfied ? 'green' : 'red'};
+  &:hover {
+    background-color: lightblue;
+  }
 `;
