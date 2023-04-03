@@ -9,16 +9,16 @@ const CurrentInfo = (props) => {
   let commentsBreakdown = [];
 
   todaysData?.setupComments?.forEach(comment => {
-    commentsSetup.push(<div>A volunteer says - {comment.text}</div>);
+    commentsSetup.push(<div>Comment - {comment.text}</div>);
   });
   todaysData?.shift1stComments?.forEach(comment => {
-    comments1st.push(<div>A volunteer says - {comment.text}</div>);
+    comments1st.push(<div>Comment - {comment.text}</div>);
   });
   todaysData?.shift2ndComments?.forEach(comment => {
-    comments2nd.push(<div>A volunteer says - {comment.text}</div>);
+    comments2nd.push(<div>Comment - {comment.text}</div>);
   });
   todaysData?.breakdownComments?.forEach(comment => {
-    commentsBreakdown.push(<div>A volunteer says - {comment.text}</div>);
+    commentsBreakdown.push(<div>Comment - {comment.text}</div>);
   });
 
   return (
@@ -27,38 +27,40 @@ const CurrentInfo = (props) => {
         Today's shift
       </h1>
       <CardBox>
-        <CardRow>
+        <CardRow satisfied={todaysData?.setupVan > 0}>
           <TimeCard>
             <div>Set-up</div>
           </TimeCard>
-          <Card satisfied={todaysData?.setupVan > 0}>
-            {todaysData?.setupVan ? todaysData?.setupVan : 0 } folks on setup!
-            {commentsSetup}
+          <Card>
+            <div>
+              {todaysData?.setupVan ? todaysData?.setupVan : 0 } folks on setup!
+              {commentsSetup}
+            </div>
           </Card>
         </CardRow>
-        <CardRow>
+        <CardRow satisfied={todaysData?.otgFirstShift + todaysData?.drivingFirstShift > 1}>
           <TimeCard>
             <div>1st Shift</div>
           </TimeCard>
-          <Card satisfied={todaysData?.otgFirstShift + todaysData?.drivingFirstShift > 1}>
+          <Card >
             {todaysData?.otgFirstShift + todaysData?.drivingFirstShift} folks on 1st shift! 
             {comments1st}
           </Card>
         </CardRow>
-        <CardRow>
+        <CardRow satisfied={todaysData?.otgSecondShift + todaysData?.drivingSecondShift > 1}>
           <TimeCard>
             <div>2nd Shift</div>
           </TimeCard>
-          <Card satisfied={todaysData?.otgSecondShift + todaysData?.drivingSecondShift > 1}>
+          <Card>
             {todaysData?.otgSecondShift + todaysData?.drivingSecondShift} folks on 2nd shift!
             {comments2nd}
           </Card>
         </CardRow>
-        <CardRow>
+        <CardRow satisfied={todaysData?.breakdownVan > 0}>
           <TimeCard>
             <div>Breakdown</div>
           </TimeCard>
-          <Card satisfied={todaysData?.breakdownVan > 0}>
+          <Card>
             {todaysData?.breakdownVan ? todaysData?.breakdownVan : 0 } folks on breakdown!
             {commentsBreakdown}
           </Card>
