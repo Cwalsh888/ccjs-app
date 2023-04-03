@@ -4,6 +4,7 @@ const Historical = (props) => {
   const { newData } = props;
 
   let dataList = [];
+  let emptyblocks = [null, null, null, null, null, null];
   let today = new Date();
   newData.forEach((data, index) => {
     if (today > new Date(data.date)) {
@@ -12,6 +13,10 @@ const Historical = (props) => {
       dataList.push(<FlexItems color={data.fullDay ? 'green' : data.halfDay ? 'yellow' : 'red' }>{month}/{day}</FlexItems>)
     }
   });
+  emptyblocks.forEach(block => {
+    dataList.push(<FlexItems color={'black'}>{block}</FlexItems>);
+  });
+
   return (
     <>
       <h1>
