@@ -7,8 +7,7 @@ import About from '../Pages/About';
 
 const Main = () => {
   // To-do:
-  // 1. Figure out how to have backend local server up forever for real site.
-  // 2. Gonna need a loading spinner for all these slow api calls
+  // 1. Gonna need a loading spinner for all these slow api calls
 
   let [data, setData] = useState([]);
   let [newData, setNewData] = useState([]);
@@ -49,8 +48,11 @@ const Main = () => {
         let breakdown = ele.jobs.find(ele => ele.name === 'breakdown')?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
         let breakdownCar = ele.jobs.find(ele => ele.name === 'breakdown car')?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
         let breakdownVan = ele.jobs.find(ele => ele.name === 'breakdown van driver')?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
-        let fullDay = (firstShiftDriving + firstShiftOTG >= 2 || drivingFirstShift + otgFirstShift >= 2) &&
+        
+        let halfDay = (firstShiftDriving + firstShiftOTG >= 2 || drivingFirstShift + otgFirstShift >= 2) ||
                       (secondShiftDriving + secondShiftOTG >= 2 || drivingSecondShift + otgSecondShift >= 2);
+        let fullDay = (firstShiftDriving + firstShiftOTG >= 2 || drivingFirstShift + otgFirstShift >= 2) &&
+                      (secondShiftDriving + secondShiftOTG >= 2 || drivingSecondShift + otgSecondShift >= 2);    
 
 
         container.date = ele.edate ? ele.edate : null;
@@ -68,6 +70,7 @@ const Main = () => {
         container.breakdown = breakdown ? breakdown : null;
         container.breakdownCar = breakdownCar ? breakdownCar : null;
         container.breakdownVan = breakdownVan ? breakdownVan : null;
+        container.halfDay = halfDay ? halfDay : null;
         container.fullDay = fullDay ? fullDay : null;
 
         return container;

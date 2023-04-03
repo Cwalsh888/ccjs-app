@@ -9,7 +9,7 @@ const Historical = (props) => {
     if (today > new Date(data.date)) {
       let month = data.date.substring(5,7);
       let day = data.date.substring(8,10);
-      dataList.push(<FlexItems fullDay={data.fullDay}>{month}/{day}</FlexItems>)
+      dataList.push(<FlexItems color={data.fullDay ? 'green' : data.halfDay ? 'yellow' : 'red' }>{month}/{day}</FlexItems>)
     }
   });
   return (

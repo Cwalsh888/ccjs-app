@@ -19,5 +19,5 @@ export const FlexBox = styled.div`
 export const FlexItems = styled.div`
   flex: 1 0 14%;
   border: 1px solid purple;
-  background-color: ${props => props.fullDay ? 'green' : 'red'};
+  background-color: ${props => props.color};
 `;
