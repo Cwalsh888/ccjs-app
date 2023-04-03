@@ -3,13 +3,14 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
   height: 100%;
-  text-align: center;
-  border: 5px solid red; 
+  border: 5px solid red;
+  background-color: #c3bfb5;
 `;
 
 export const PageContainer = styled.div`
   width: 100%;
   height: 95%;
+  text-align: center;
   border: 5px solid cyan;
 `
 
