@@ -7,7 +7,7 @@ const FunFacts = (props) => {
   return (
     <>
       <h1>
-        This is the FunFacts Page!
+        This is the Fun Facts Page!
       </h1>
     </>
   );
