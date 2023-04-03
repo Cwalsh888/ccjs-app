@@ -12,6 +12,7 @@ export const PageContainer = styled.div`
   height: 95%;
   text-align: center;
   border: 5px solid cyan;
+  overflow-y: auto;
 `
 
 export const NavigationBox = styled.div`
