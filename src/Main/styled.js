@@ -9,7 +9,7 @@ export const Container = styled.div`
 
 export const PageContainer = styled.div`
   width: 100%;
-  height: 95%;
+  height: 82%;
   text-align: center;
   border: 5px solid cyan;
   overflow-y: auto;

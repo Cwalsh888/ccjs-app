@@ -1,4 +1,4 @@
-import { Card, CardBox } from './styled';
+import { Card, CardBox, CardRow, TimeCard } from './styled';
 
 const CurrentInfo = (props) => {
   const { todaysData } = props;
@@ -24,29 +24,46 @@ const CurrentInfo = (props) => {
   return (
     <>
       <h1>
-        Today's date is {todaysData?.date}
+        Today's shift
       </h1>
       <CardBox>
-        <Card satisfied={todaysData?.setupVan > 0}>
-          We have {todaysData?.setupVan ? todaysData?.setupVan : 0 } folks on setup!
-          {commentsSetup}
-        </Card>
-        <Card satisfied={todaysData?.otgFirstShift + todaysData?.drivingFirstShift > 1}>
-          We have {todaysData?.otgFirstShift + todaysData?.drivingFirstShift} folks on 1st shift! 
-          {comments1st}
-        </Card>
-        <Card satisfied={todaysData?.otgSecondShift + todaysData?.drivingSecondShift > 1}>
-          We have {todaysData?.otgSecondShift + todaysData?.drivingSecondShift} folks on 2nd shift!
-          {comments2nd}
-        </Card>
-        <Card satisfied={todaysData?.breakdownVan > 0}>
-          We have {todaysData?.breakdownVan ? todaysData?.breakdownVan : 0 } folks on breakdown!
-          {commentsBreakdown}
-        </Card>
+        <CardRow>
+          <TimeCard>
+            <div>Set-up</div>
+          </TimeCard>
+          <Card satisfied={todaysData?.setupVan > 0}>
+            {todaysData?.setupVan ? todaysData?.setupVan : 0 } folks on setup!
+            {commentsSetup}
+          </Card>
+        </CardRow>
+        <CardRow>
+          <TimeCard>
+            <div>1st Shift</div>
+          </TimeCard>
+          <Card satisfied={todaysData?.otgFirstShift + todaysData?.drivingFirstShift > 1}>
+            {todaysData?.otgFirstShift + todaysData?.drivingFirstShift} folks on 1st shift! 
+            {comments1st}
+          </Card>
+        </CardRow>
+        <CardRow>
+          <TimeCard>
+            <div>2nd Shift</div>
+          </TimeCard>
+          <Card satisfied={todaysData?.otgSecondShift + todaysData?.drivingSecondShift > 1}>
+            {todaysData?.otgSecondShift + todaysData?.drivingSecondShift} folks on 2nd shift!
+            {comments2nd}
+          </Card>
+        </CardRow>
+        <CardRow>
+          <TimeCard>
+            <div>Breakdown</div>
+          </TimeCard>
+          <Card satisfied={todaysData?.breakdownVan > 0}>
+            {todaysData?.breakdownVan ? todaysData?.breakdownVan : 0 } folks on breakdown!
+            {commentsBreakdown}
+          </Card>
+        </CardRow>
       </CardBox>
-      <div>
-        We could use x more folks on x shift to get jail support running!
-      </div>
     </>
   );
 }
