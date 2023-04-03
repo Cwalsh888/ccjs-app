@@ -10,7 +10,7 @@ const FunFacts = (props) => {
         This is the Fun Facts Page!
       </h1>
       <div>
-        Data to parse through:
+        Data to parse through for facts:
         <ul>
           <li>Rough number of total unique volunteers</li>
           <li>Average number of unique volunteers per year</li>

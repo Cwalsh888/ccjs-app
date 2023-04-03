@@ -15,6 +15,12 @@ export const PageContainer = styled.div`
   overflow-y: auto;
 `
 
+export const Title = styled.h1`
+  font-size: 3em;
+  text-align: center;
+  color: #613898;
+`;
+
 export const NavigationBox = styled.div`
   position: fixed;
   bottom: 0;

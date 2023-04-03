@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Container, PageContainer, NavigationBox, NavButton } from './styled';
+import { Container, PageContainer, Title, NavigationBox, NavButton } from './styled';
 import CurrentInfo from '../Pages/CurrentInfo';
 import Historical from '../Pages/Historical';
 import FunFacts from '../Pages/FunFacts';
@@ -97,6 +97,9 @@ const Main = () => {
   
   return (
     <Container>
+      <Title>
+        Project CCJS
+      </Title>
       <PageContainer>   
         {(() => {
           switch (page) {
