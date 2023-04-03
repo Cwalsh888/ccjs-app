@@ -1,7 +1,9 @@
-import { FlexBox, FlexItems } from './styled';
+import { useState, useEffect } from 'react';
+import { FlexBox, FlexItems, Loading } from './styled';
 
 const Historical = (props) => {
   const { newData } = props;
+  let [loading, setLoading] = useState(true);
 
   let dataList = [];
   let emptyblocks = [null, null, null, null, null, null];
@@ -17,21 +19,32 @@ const Historical = (props) => {
     dataList.push(<FlexItems color={'black'}>{block}</FlexItems>);
   });
 
+  useEffect(() => {
+    if (newData[0]?.date) {
+      setLoading(false);
+    }
+  }, [newData])
+
   return (
     <>
       <h1>
         Past Shifts
       </h1>
-      <FlexBox>
-        <FlexItems>Mon</FlexItems>
-        <FlexItems>Tues</FlexItems>
-        <FlexItems>Wed</FlexItems>
-        <FlexItems>Thurs</FlexItems>
-        <FlexItems>Fri</FlexItems>
-        <FlexItems>Sat</FlexItems>
-        <FlexItems>Su</FlexItems>
-        {dataList}
-      </FlexBox>
+      {loading ? 
+        <Loading>
+          This page is loading! Give it 5 seconds.
+        </Loading> : 
+        <FlexBox>
+            <FlexItems>Mon</FlexItems>
+            <FlexItems>Tues</FlexItems>
+            <FlexItems>Wed</FlexItems>
+            <FlexItems>Thurs</FlexItems>
+            <FlexItems>Fri</FlexItems>
+            <FlexItems>Sat</FlexItems>
+            <FlexItems>Su</FlexItems>
+            {dataList}
+        </FlexBox>
+      }
     </>
   );
 }

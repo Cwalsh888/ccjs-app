@@ -10,7 +10,7 @@ const About = () => {
       <Summary>
         Hello! <br/>
         CCJS is a volunteer-ran organization that runs everyday. <br/>
-        I made this website to visualize some of the data from the CCJS group. <br/>   
+        I made this site to visualize some of the data from the CCJS group. <br/>   
       </Summary>
     </>
   );

@@ -14,3 +14,7 @@ export const FlexItems = styled.div`
   border: 1px solid purple;
   background-color: ${props => props.color};
 `;
+
+export const Loading = styled.div`
+  font-size: 4em;
+`

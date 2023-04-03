@@ -6,9 +6,6 @@ import FunFacts from '../Pages/FunFacts';
 import About from '../Pages/About';
 
 const Main = () => {
-  // To-do:
-  // 1. Gonna need a loading spinner for all these slow api calls
-
   let [data, setData] = useState([]);
   let [newData, setNewData] = useState([]);
   let [todaysData, setTodaysData] = useState({});

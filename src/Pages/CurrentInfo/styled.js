@@ -25,3 +25,7 @@ export const Card = styled.div`
 export const TimeCard = styled.div`
   width: 50%;
 `;
+
+export const Loading = styled.div`
+  font-size: 4em;
+`
