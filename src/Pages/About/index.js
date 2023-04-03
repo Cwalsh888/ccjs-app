@@ -1,19 +1,17 @@
-import { useEffect, useState } from 'react';
-import { Card, CardBox, Container } from './styled';
+import { Summary } from './styled';
 
-const About = (props) => {
-  const { todaysData } = props;
+const About = () => {
 
   return (
     <>
       <h1>
-        This is the About Page!
+        About Me
       </h1>
-      <div>
-        Hello! I made this website to visualize some of the data from the CCJS group.
-        CCJS is a volunter-ran organization that runs everyday.
-        It could potentially be used to see the current status of today's shift and see what we need as well.
-      </div>
+      <Summary>
+        Hello! <br/>
+        CCJS is a volunteer-ran organization that runs everyday. <br/>
+        I made this website to visualize some of the data from the CCJS group. <br/>   
+      </Summary>
     </>
   );
 }

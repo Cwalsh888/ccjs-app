@@ -6,7 +6,7 @@ const Historical = (props) => {
   let dataList = [];
   let emptyblocks = [null, null, null, null, null, null];
   let today = new Date();
-  newData.forEach((data, index) => {
+  newData.forEach(data => {
     if (today > new Date(data.date)) {
       let month = data.date.substring(5,7);
       let day = data.date.substring(8,10);
@@ -20,7 +20,7 @@ const Historical = (props) => {
   return (
     <>
       <h1>
-        This is the Historical Page!
+        Past Shifts
       </h1>
       <FlexBox>
         <FlexItems>Mon</FlexItems>

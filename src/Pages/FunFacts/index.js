@@ -1,22 +1,21 @@
-import { useEffect, useState } from 'react';
-import { Card, CardBox, Container } from './styled';
+import { Summary } from './styled';
 
-const FunFacts = (props) => {
-  const { todaysData } = props;
+const FunFacts = () => {
 
   return (
     <>
       <h1>
-        This is the Fun Facts Page!
+        More Data
       </h1>
-      <div>
-        Data to parse through for facts:
+      <Summary>
+        Data to parse through later:
         <ul>
           <li>Rough number of total unique volunteers</li>
           <li>Average number of unique volunteers per year</li>
           <li>Most days Jail Support ran in a row</li>
+          <li>Add the percentage for each days' "fullshift" rate</li>
         </ul>
-      </div>
+      </Summary>
     </>
   );
 }

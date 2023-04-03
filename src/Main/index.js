@@ -124,7 +124,7 @@ const Main = () => {
           Past Data
         </NavButton>
         <NavButton onClick={() => setPage('funFacts')}>
-          Fun Facts
+          More Data
         </NavButton>
         <NavButton onClick={() => setPage('about')}>
           About 
