@@ -15,3 +15,5 @@ A project to visualize data from the CCJS group.
 - [ ] Add a skeleton version of these pages to be shown while loading.
 
 - [ ] Add a proper loading spinner.
+
+- [ ] Add a index file to Pages so that I can import them all from the same line.
