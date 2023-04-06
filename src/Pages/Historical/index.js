@@ -1,29 +1,17 @@
 import { useState, useEffect } from 'react';
+
 import { FlexBox, FlexItems, Loading } from './styled';
 
 const Historical = (props) => {
-  const { newData } = props;
+  const { historicaldata } = props;
   let [loading, setLoading] = useState(true);
-
-  let dataList = [];
-  let emptyblocks = [null, null, null, null, null, null];
-  let today = new Date();
-  newData.forEach(data => {
-    if (today > new Date(data.date)) {
-      let month = data.date.substring(5,7);
-      let day = data.date.substring(8,10);
-      dataList.push(<FlexItems color={data.fullDay ? 'green' : data.halfDay ? 'yellow' : 'red' }>{month}/{day}</FlexItems>)
-    }
-  });
-  emptyblocks.forEach(block => {
-    dataList.push(<FlexItems color={'black'}>{block}</FlexItems>);
-  });
-
+  const emptyblocks = [null, null, null, null, null, null];
+  
   useEffect(() => {
-    if (newData[0]?.date) {
+    if (historicaldata[0]?.date) {
       setLoading(false);
     }
-  }, [newData])
+  }, [historicaldata])
 
   return (
     <>
@@ -42,7 +30,11 @@ const Historical = (props) => {
             <FlexItems>Fri</FlexItems>
             <FlexItems>Sat</FlexItems>
             <FlexItems>Su</FlexItems>
-            {dataList}
+            {historicaldata.map(item => 
+              <FlexItems color={item.fullDay ? 'green' : item.halfDay ? 'yellow' : 'red' }>
+                {item.date.substring(5,7)}/{item.date.substring(8,10)}
+              </FlexItems>)}
+            {emptyblocks.map(item => <FlexItems color={'black'}>{item}</FlexItems>)}
         </FlexBox>
       }
     </>

@@ -9,21 +9,20 @@ import { Container, PageContainer, Title, NavigationBox, NavButton } from './sty
 
 const Main = () => {
   let [data, setData] = useState([]);
-  let [todaysData, setTodaysData] = useState({});
+  let [historicaldata, setHistoricalData] = useState([]);
   let [page, setPage] = useState('currentInfo');
 
-  const date = new Date();
-
-  let day = date.getDate().toString().padStart(2, '0');
-  let month = (date.getMonth() + 1).toString().padStart(2, '0');
-  let year = date.getFullYear();
-
-  let today = `${year}-${month}-${day}`;
-
   useEffect(() => {
-    fetch(`https://ccjs-server.onrender.com/getData`)
+    fetch(`https://ccjs-server.onrender.com/getTodaysData`)
      .then(response => response.json())
      .then(result => setData(convertData(result.data)))
+     .catch(error => console.log(error.message));
+  }, []);
+
+  useEffect(() => {
+    fetch(`https://ccjs-server.onrender.com/getLastWeekData`)
+     .then(response => response.json())
+     .then(result => setHistoricalData(convertData(result.data)))
      .catch(error => console.log(error.message));
   }, []);
 
@@ -38,7 +37,7 @@ const Main = () => {
             case 'currentInfo':
               return <CurrentInfo todaysData={data[0]} />
             case 'historical':
-              return <Historical newData={data[0]} />
+              return <Historical historicaldata={historicaldata}/>
             case 'funFacts':
               return <FunFacts todaysData={data[0]} />
             case 'about':

@@ -4,7 +4,7 @@ A project to visualize data from the CCJS group.
 
 ## Tech Debt
 
-- [ ] Tighten the parameters in the API call for a faster load.
+- [X] Tighten the parameters in the API call for a faster load. 4/6/2023
 
 - [ ] Clarify whether data returned is legacy and no longer actively being used.
 
@@ -17,3 +17,5 @@ A project to visualize data from the CCJS group.
 - [ ] Add a proper loading spinner.
 
 - [ ] Add a index file to Pages so that I can import them all from the same line.
+
+- [ ] Add a toggle on the Historical page to show more dates
