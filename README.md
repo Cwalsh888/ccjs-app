@@ -19,3 +19,5 @@ A project to visualize data from the CCJS group.
 - [ ] Add a index file to Pages so that I can import them all from the same line.
 
 - [ ] Add a toggle on the Historical page to show more dates
+
+- [ ] Smart Dynamic Day Order on the Historical Page
