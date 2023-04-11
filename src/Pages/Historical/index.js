@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 
-import { FlexBox, FlexItems, Loading } from './styled';
+import { Container, FlexBox, FlexItems, Loading } from './styled';
 
 const Historical = (props) => {
   const { historicaldata } = props;
   let [loading, setLoading] = useState(true);
+  let [ historicalData, setHistoricalData ] = useState([]);
   const emptyblocks = [null, null, null, null, null, null];
   
   useEffect(() => {
@@ -14,7 +15,7 @@ const Historical = (props) => {
   }, [historicaldata])
 
   return (
-    <>
+    <Container>
       <h1>
         Past Shifts
       </h1>
@@ -23,21 +24,21 @@ const Historical = (props) => {
           This page is loading! Give it 5 seconds.
         </Loading> : 
         <FlexBox>
-            <FlexItems>Mon</FlexItems>
-            <FlexItems>Tues</FlexItems>
-            <FlexItems>Wed</FlexItems>
-            <FlexItems>Thurs</FlexItems>
-            <FlexItems>Fri</FlexItems>
-            <FlexItems>Sat</FlexItems>
+            <FlexItems>M</FlexItems>
+            <FlexItems>Tu</FlexItems>
+            <FlexItems>W</FlexItems>
+            <FlexItems>Th</FlexItems>
+            <FlexItems>F</FlexItems>
+            <FlexItems>S</FlexItems>
             <FlexItems>Su</FlexItems>
             {historicaldata.map(item => 
-              <FlexItems color={item.fullDay ? 'green' : item.halfDay ? 'yellow' : 'red' }>
+              <FlexItems color={item.fullDay ? '#6F9838' : item.halfDay ? '#E7E74B' : '#E43131' }>
                 {item.date.substring(5,7)}/{item.date.substring(8,10)}
               </FlexItems>)}
             {emptyblocks.map(item => <FlexItems color={'black'}>{item}</FlexItems>)}
         </FlexBox>
       }
-    </>
+    </Container>
   );
 }
 

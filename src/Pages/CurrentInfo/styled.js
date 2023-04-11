@@ -15,7 +15,7 @@ export const CardRow = styled.div`
   height: 100%;
   justify-content: center;
   align-items: center;
-  border: 2px solid ${props => props.satisfied ? 'green' : 'red'};
+  border: 2px solid ${props => props.satisfied ? '#6F9838' : '#E43131'};
 `;
 
 export const Card = styled.div`
