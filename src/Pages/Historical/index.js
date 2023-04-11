@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { Container, FlexBox, FlexItems, Loading } from './styled';
+import { Container, Title, FlexBox, FlexItems, Loading } from './styled';
 
 const Historical = (props) => {
   const { historicaldata } = props;
@@ -16,9 +16,9 @@ const Historical = (props) => {
 
   return (
     <Container>
-      <h1>
+      <Title>
         Past Shifts
-      </h1>
+      </Title>
       {loading ? 
         <Loading>
           This page is loading! Give it 5 seconds.
