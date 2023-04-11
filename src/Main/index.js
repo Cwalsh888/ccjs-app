@@ -50,13 +50,13 @@ const Main = () => {
       <NavigationBox>
         <SideMenu hidden={page !== 'historical'}>
           <NavButton>
-            Second Menu
+            Reset Table
           </NavButton>
           <NavButton>
-            Second Menu 2
+            Add 1 week
           </NavButton>
           <NavButton>
-            Second Menu 3
+            Add 6 months
           </NavButton>
         </SideMenu>
         <NavRow>
