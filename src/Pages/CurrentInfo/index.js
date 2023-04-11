@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Card, CardBox, CardRow, TimeCard, Loading } from './styled';
+import { Title, Card, CardBox, CardRow, TimeCard, Loading } from './styled';
 
 const CurrentInfo = (props) => {
   const { todaysData } = props;
@@ -31,9 +31,9 @@ const CurrentInfo = (props) => {
 
   return (
     <>
-      <h1>
+      <Title>
         Today's shift
-      </h1>
+      </Title>
       {loading ? 
         <Loading>
           This page is loading! Give it 5 seconds.

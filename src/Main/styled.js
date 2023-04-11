@@ -19,7 +19,7 @@ export const PageContainer = styled.div`
 `
 
 export const Title = styled.h1`
-  height: 12%;
+  height: 9%;
   font-size: 3em;
   text-align: center;
   color: #613898;
@@ -38,10 +38,18 @@ export const NavigationBox = styled.div`
   left: 0;
   right: 0;
   display: flex;
+  flex-direction: column;
   width: 90%;
-  height: 7%;
+  height: 15%;
   margin: auto;
   /* border: 5px solid yellow; */
+`;
+
+export const NavRow = styled.div`
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  visibility: ${props => props.hidden ? 'hidden' : 'visible'}; 
 `;
 
 export const NavButton = styled.button`

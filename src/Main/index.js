@@ -5,7 +5,7 @@ import FunFacts from '../Pages/FunFacts';
 import About from '../Pages/About';
 import { convertData } from '../Utilities/convertData';
 
-import { Container, PageContainer, Title, NavigationBox, NavButton } from './styled';
+import { Container, PageContainer, Title, NavigationBox, NavRow, NavButton } from './styled';
 
 const Main = () => {
   let [data, setData] = useState([]);
@@ -48,18 +48,31 @@ const Main = () => {
         })()}
       </PageContainer>
       <NavigationBox>
-        <NavButton onClick={() => setPage('currentInfo')}>
-          Today's Info
-        </NavButton>
-        <NavButton onClick={() => setPage('historical')}>
-          Past Data
-        </NavButton>
-        <NavButton onClick={() => setPage('funFacts')}>
-          More Data
-        </NavButton>
-        <NavButton onClick={() => setPage('about')}>
-          About 
-        </NavButton>
+        <NavRow hidden={page !== 'historical'}>
+          <NavButton>
+            Second Menu
+          </NavButton>
+          <NavButton>
+            Second Menu 2
+          </NavButton>
+          <NavButton>
+            Second Menu 3
+          </NavButton>
+        </NavRow>
+        <NavRow>
+          <NavButton onClick={() => setPage('currentInfo')}>
+            Today's Info
+          </NavButton>
+          <NavButton onClick={() => setPage('historical')}>
+            Past Data
+          </NavButton>
+          <NavButton onClick={() => setPage('funFacts')}>
+            More Data
+          </NavButton>
+          <NavButton onClick={() => setPage('about')}>
+            About 
+          </NavButton>
+        </NavRow>
       </NavigationBox>
     </Container>
   );
