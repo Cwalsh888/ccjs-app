@@ -1,12 +1,13 @@
+import { Title } from '../common';
 import { Summary } from './styled';
 
 const About = () => {
 
   return (
     <>
-      <h1>
+      <Title>
         About Me
-      </h1>
+      </Title>
       <Summary>
         Hello! <br/>
         CCJS is a volunteer-ran organization that runs everyday. <br/>

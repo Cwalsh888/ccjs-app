@@ -4,12 +4,6 @@ export const Container = styled.div`
   /* border: 5px solid purple; */
 `;
 
-export const Title = styled.h1`
-  @media (max-width: 425px) {
-    font-size: 1.5em;
-  }
-`
-
 export const FlexBox = styled.div`
   display: flex;
   flex-wrap: wrap;

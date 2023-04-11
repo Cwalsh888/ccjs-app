@@ -1,12 +1,13 @@
+import { Title } from '../common';
 import { Summary } from './styled';
 
 const FunFacts = () => {
 
   return (
     <>
-      <h1>
+      <Title>
         More Data
-      </h1>
+      </Title>
       <Summary>
         Data to parse through later:
         <ul>

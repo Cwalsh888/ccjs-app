@@ -1,11 +1,5 @@
 import styled from 'styled-components';
 
-export const Title = styled.h1`
-  @media (max-width: 425px) {
-    font-size: 1.5em;
-  }
-`;
-
 export const CardBox = styled.div`
   display: flex;
   flex-direction: column;

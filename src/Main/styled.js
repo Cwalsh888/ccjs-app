@@ -40,16 +40,22 @@ export const NavigationBox = styled.div`
   display: flex;
   flex-direction: column;
   width: 90%;
-  height: 15%;
+  height: 10%;
   margin: auto;
   /* border: 5px solid yellow; */
 `;
 
 export const NavRow = styled.div`
   display: flex;
-  height: 100%;
+  height: 75%;
   justify-content: center;
-  visibility: ${props => props.hidden ? 'hidden' : 'visible'}; 
+`;
+
+export const SideMenu = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 50%;
+  visibility: ${props => props.hidden ? 'hidden' : 'visible'};
 `;
 
 export const NavButton = styled.button`

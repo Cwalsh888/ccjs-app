@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Title, Card, CardBox, CardRow, TimeCard, Loading } from './styled';
+import { Title } from '../common';
+import { Card, CardBox, CardRow, TimeCard, Loading } from './styled';
 
 const CurrentInfo = (props) => {
   const { todaysData } = props;

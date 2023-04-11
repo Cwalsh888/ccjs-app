@@ -5,7 +5,7 @@ import FunFacts from '../Pages/FunFacts';
 import About from '../Pages/About';
 import { convertData } from '../Utilities/convertData';
 
-import { Container, PageContainer, Title, NavigationBox, NavRow, NavButton } from './styled';
+import { Container, PageContainer, Title, NavigationBox, NavRow, SideMenu, NavButton } from './styled';
 
 const Main = () => {
   let [data, setData] = useState([]);
@@ -48,7 +48,7 @@ const Main = () => {
         })()}
       </PageContainer>
       <NavigationBox>
-        <NavRow hidden={page !== 'historical'}>
+        <SideMenu hidden={page !== 'historical'}>
           <NavButton>
             Second Menu
           </NavButton>
@@ -58,7 +58,7 @@ const Main = () => {
           <NavButton>
             Second Menu 3
           </NavButton>
-        </NavRow>
+        </SideMenu>
         <NavRow>
           <NavButton onClick={() => setPage('currentInfo')}>
             Today's Info

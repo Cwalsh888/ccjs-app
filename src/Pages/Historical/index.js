@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
-import { Container, Title, FlexBox, FlexItems, Loading } from './styled';
+import { Title } from '../common';
+import { Container, FlexBox, FlexItems, Loading } from './styled';
 
 const Historical = (props) => {
   const { historicaldata } = props;
