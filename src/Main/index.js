@@ -10,6 +10,7 @@ import { Container, PageContainer, Title, NavigationBox, NavRow, SideMenu, NavBu
 const Main = () => {
   let [data, setData] = useState([]);
   let [historicaldata, setHistoricalData] = useState([]);
+  let [days, setDays] = useState(7);
   let [page, setPage] = useState('currentInfo');
 
   useEffect(() => {
@@ -20,11 +21,13 @@ const Main = () => {
   }, []);
 
   useEffect(() => {
-    fetch(`https://ccjs-server.onrender.com/getLastWeekData`)
+    fetch(`https://ccjs-server.onrender.com/getHistoricalData?` + new URLSearchParams({
+      days: days,
+    }))
      .then(response => response.json())
      .then(result => setHistoricalData(convertData(result.data)))
      .catch(error => console.log(error.message));
-  }, []);
+  }, [days]);
 
   return (
     <Container>
@@ -49,13 +52,13 @@ const Main = () => {
       </PageContainer>
       <NavigationBox>
         <SideMenu hidden={page !== 'historical'}>
-          <NavButton>
+          <NavButton onClick={() => setDays(7)}>
             Reset Table
           </NavButton>
-          <NavButton>
+          <NavButton onClick={() => setDays(days + 7)}>
             Add 1 week
           </NavButton>
-          <NavButton>
+          <NavButton onClick={() => setDays(days + 182)}>
             Add 6 months
           </NavButton>
         </SideMenu>
