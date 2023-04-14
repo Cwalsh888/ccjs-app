@@ -13,9 +13,15 @@ export const CardBox = styled.div`
 export const CardRow = styled.div`
   display: flex;
   height: 100%;
+  font-size: 1.5em;
   justify-content: center;
   align-items: center;
-  border: 2px solid ${props => props.satisfied ? '#6F9838' : '#E43131'};
+  background-color: ${props => props.satisfied ? '#6F9838' : '#E43131'};
+  border: 2px solid black;
+
+  @media (max-width: 425px) {
+    font-size: 1.1em;
+  }
 `;
 
 export const Card = styled.div`
