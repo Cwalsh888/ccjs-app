@@ -35,12 +35,10 @@ const Historical = (props) => {
             <FlexItems>F</FlexItems>
             <FlexItems>Sa</FlexItems>
             <FlexItems>Su</FlexItems>
-            {emptyblocks.slice(6 - weekday).map((item, idx) => 
-              <FlexItems key={idx} color={'black'}>{item}</FlexItems>
-            )}
+            {emptyblocks.slice(6 - weekday).map((item, idx) => <FlexItems key={idx} color={'black'}>{item}</FlexItems>)}
             {historicaldata.map(item => 
               <FlexItems key={item.date} color={item.fullDay ? '#6F9838' : item.halfDay ? '#E7E74B' : '#E43131' }>
-                {item.date.substring(5,7)}/{item.date.substring(8,10)}
+                {item.month}/{item.day}
               </FlexItems>
             )}
             {emptyblocks.map((item, idx) => <FlexItems key={idx} color={'black'}>{item}</FlexItems>)}

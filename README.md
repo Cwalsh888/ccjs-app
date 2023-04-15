@@ -4,7 +4,7 @@ A project to visualize data from the CCJS group.
 
 ## Tech Debt
 
-- [X] Tighten the parameters in the API call for a faster load. 4/6/23
+- [X] ~~Tighten the parameters in the API call for a faster load. 4/6/23~~
 
 - [ ] Clarify whether data returned is legacy and no longer actively being used.
 
@@ -18,6 +18,6 @@ A project to visualize data from the CCJS group.
 
 - [ ] Add a index file to Pages so that I can import them all from the same line.
 
-- [X] Add a toggle on the Historical page to show more dates 4/14/23
+- [X] ~~Add a toggle on the Historical page to show more dates 4/14/23~~
 
-- [ ] Smart Dynamic Day Order on the Historical Page
+- [X] ~~Smart Dynamic Day Order on the Historical Page 4/15/23~~

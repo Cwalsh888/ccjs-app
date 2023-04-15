@@ -34,6 +34,8 @@ export const convertData = (data) => {
 
 
         container.date = ele.edate ? ele.edate : null;
+        container.month = ele.edate ? ele.edate.substring(5,7) : null;
+        container.day = ele.edate ? ele.edate.substring(8,10) : null;
         container.setup = setup ? setup : null;
         container.setupCar = setupCar ? setupCar : null;
         container.setupVan = setupVan ? setupVan : null;
