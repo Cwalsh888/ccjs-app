@@ -2,6 +2,7 @@ export const convertData = (data) => {
     let result = [];
 
     if (data.length > 0) {
+      console.log(data);
       result = data.map(ele => {
         const container = {};
         // Specify legacy shifts versus current shifts
