@@ -12,8 +12,6 @@ const Historical = (props) => {
   useEffect(() => {
     if (historicaldata[0]?.date) {
       setWeekday(new Date(historicaldata[0].date).getDay());
-
-      console.log(historicaldata);
       setLoading(false);
     }
   }, [historicaldata])
