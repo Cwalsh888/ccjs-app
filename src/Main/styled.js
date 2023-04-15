@@ -29,7 +29,6 @@ export const Title = styled.h1`
   @media (max-width: 425px) {
     font-size: 2em;
     height: 6%;
-    padding-top: .5em;
   }
 `;
 
