@@ -21,3 +21,5 @@ A project to visualize data from the CCJS group.
 - [X] ~~Add a toggle on the Historical page to show more dates 4/14/23~~
 
 - [X] ~~Smart Dynamic Day Order on the Historical Page 4/15/23~~
+
+- [ ] Update the site into "Dark Mode" Initially
