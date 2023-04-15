@@ -6,7 +6,6 @@ import { Container, FlexBox, FlexItems, Loading } from './styled';
 const Historical = (props) => {
   const { historicaldata } = props;
   let [loading, setLoading] = useState(true);
-  let [ historicalData, setHistoricalData ] = useState([]);
   const emptyblocks = [null, null, null, null, null, null];
   
   useEffect(() => {
@@ -35,7 +34,8 @@ const Historical = (props) => {
             {historicaldata.map(item => 
               <FlexItems color={item.fullDay ? '#6F9838' : item.halfDay ? '#E7E74B' : '#E43131' }>
                 {item.date.substring(5,7)}/{item.date.substring(8,10)}
-              </FlexItems>)}
+              </FlexItems>
+            )}
             {emptyblocks.map(item => <FlexItems color={'black'}>{item}</FlexItems>)}
         </FlexBox>
       }

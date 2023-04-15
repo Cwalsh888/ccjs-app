@@ -4,18 +4,20 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   padding: 1em;
+  padding-top: 2em;
   display: flex;
   flex-direction: column;
-  /* border: 5px solid red; */
+  gap: 1em;
   background-color: #c3bfb5;
+  /* border: 5px solid red; */
 `;
 
 export const PageContainer = styled.div`
   width: 100%;
   height: 75%;
   text-align: center;
-  /* border: 5px solid cyan; */
   overflow-y: auto;
+  /* border: 5px solid cyan; */
 `
 
 export const Title = styled.h1`
