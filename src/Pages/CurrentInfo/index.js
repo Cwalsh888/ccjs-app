@@ -12,16 +12,16 @@ const CurrentInfo = (props) => {
   let commentsBreakdown = [];
 
   todaysData?.setupComments?.forEach(comment => {
-    commentsSetup.push(<div>Comment - {comment.text}</div>);
+    commentsSetup.push(<div>Comment - {comment?.text}</div>);
   });
   todaysData?.shift1stComments?.forEach(comment => {
-    comments1st.push(<div>Comment - {comment.text}</div>);
+    comments1st.push(<div>Comment - {comment?.text}</div>);
   });
   todaysData?.shift2ndComments?.forEach(comment => {
-    comments2nd.push(<div>Comment - {comment.text}</div>);
+    comments2nd.push(<div>Comment - {comment?.text}</div>);
   });
   todaysData?.breakdownComments?.forEach(comment => {
-    commentsBreakdown.push(<div>Comment - {comment.text}</div>);
+    commentsBreakdown.push(<div>Comment - {comment?.text}</div>);
   });
 
   useEffect(() => {
