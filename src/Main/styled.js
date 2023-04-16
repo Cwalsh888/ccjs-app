@@ -63,5 +63,6 @@ export const SideMenu = styled.div`
 export const NavButton = styled.button`
   width: 25%;
   background-color: #9C83BF;
+  border-radius: 1em;
   /* border: 5px solid orange; */
 `;

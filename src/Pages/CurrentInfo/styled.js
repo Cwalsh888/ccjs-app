@@ -18,6 +18,7 @@ export const CardRow = styled.div`
   align-items: center;
   background-color: ${props => props.satisfied ? '#6F9838' : '#E43131'};
   border: 2px solid black;
+  border-radius: 1em;
 
   @media (max-width: 425px) {
     font-size: 1.1em;
