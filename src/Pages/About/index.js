@@ -1,4 +1,5 @@
 import { Title } from '../common';
+
 import { Summary } from './styled';
 
 const About = () => {

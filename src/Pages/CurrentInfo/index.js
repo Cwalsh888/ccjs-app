@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
+
 import { Title } from '../common';
+
 import { Card, CardBox, CardRow, TimeCard, Loading } from './styled';
 
 const CurrentInfo = (props) => {

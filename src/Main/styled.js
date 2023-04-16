@@ -8,7 +8,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1em;
-  background-color: #c3bfb5;
+  background-color: #c3bfb5; // #3e4346 DARK MODE
   /* border: 5px solid red; */
 `;
 

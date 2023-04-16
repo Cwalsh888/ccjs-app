@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
-import CurrentInfo from '../Pages/CurrentInfo';
-import Historical from '../Pages/Historical';
-import FunFacts from '../Pages/FunFacts';
-import About from '../Pages/About';
-import { convertData } from '../Utilities/convertData';
+
+import { CurrentInfo, Historical, FunFacts, About } from '../Pages';
+import { convertData, convertTodaysData } from '../Utilities';
 
 import { Container, PageContainer, Title, NavigationBox, NavRow, SideMenu, NavButton } from './styled';
 
@@ -16,7 +14,7 @@ const Main = () => {
   useEffect(() => {
     fetch(`https://ccjs-server.onrender.com/getTodaysData`)
      .then(response => response.json())
-     .then(result => setData(convertData(result.data)))
+     .then(result => setData(convertTodaysData(result.data)))
      .catch(error => console.log(error.message));
   }, []);
 

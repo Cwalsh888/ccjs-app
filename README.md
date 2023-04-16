@@ -16,7 +16,9 @@ A project to visualize data from the CCJS group.
 
 - [ ] Add a proper loading spinner.
 
-- [ ] Add a index file to Pages so that I can import them all from the same line.
+- [X] ~~Add a index file to Pages so that I can import them all from the same line. 4/16/23~~
+
+- [ ] Add an import directive for Pages, Common, Utilites, etc
 
 - [X] ~~Add a toggle on the Historical page to show more dates 4/14/23~~
 
