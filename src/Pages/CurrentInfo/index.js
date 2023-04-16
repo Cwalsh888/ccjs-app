@@ -47,7 +47,7 @@ const CurrentInfo = (props) => {
               </TimeCard>
               <Card>
                 <div>
-                  {todaysData?.setupVan ? todaysData?.setupVan : 0 } folks on setup!
+                  {todaysData?.setupVan ? todaysData?.setupVan : 0 } folks signed up!
                   {commentsSetup}
                 </div>
               </Card>
@@ -57,7 +57,7 @@ const CurrentInfo = (props) => {
                 <div>1st Shift</div>
               </TimeCard>
               <Card >
-                {todaysData?.otgFirstShift + todaysData?.drivingFirstShift} folks on 1st shift! 
+                {todaysData?.otgFirstShift + todaysData?.drivingFirstShift} folks signed up! 
                 {comments1st}
               </Card>
             </CardRow>
@@ -66,7 +66,7 @@ const CurrentInfo = (props) => {
                 <div>2nd Shift</div>
               </TimeCard>
               <Card>
-                {todaysData?.otgSecondShift + todaysData?.drivingSecondShift} folks on 2nd shift!
+                {todaysData?.otgSecondShift + todaysData?.drivingSecondShift} folks signed up!
                 {comments2nd}
               </Card>
             </CardRow>
@@ -75,7 +75,7 @@ const CurrentInfo = (props) => {
                 <div>Breakdown</div>
               </TimeCard>
               <Card>
-                {todaysData?.breakdownVan ? todaysData?.breakdownVan : 0 } folks on breakdown!
+                {todaysData?.breakdownVan ? todaysData?.breakdownVan : 0 } folks signed up!
                 {commentsBreakdown}
               </Card>
             </CardRow>

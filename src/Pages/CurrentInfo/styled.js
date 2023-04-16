@@ -27,10 +27,12 @@ export const CardRow = styled.div`
 
 export const Card = styled.div`
   width: 50%;
+  padding: 0 1em;
 `;
 
 export const TimeCard = styled.div`
   width: 50%;
+  border-right: 1.5px solid black;
 `;
 
 export const Loading = styled.div`
