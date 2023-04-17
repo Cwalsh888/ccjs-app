@@ -46,6 +46,7 @@ const CurrentInfo = (props) => {
             <CardRow satisfied={todaysData?.setupVan > 0}>
               <TimeCard>
                 <div>Set-up</div>
+                {todaysData.setupTime}
               </TimeCard>
               <Card>
                 <div>
@@ -57,6 +58,7 @@ const CurrentInfo = (props) => {
             <CardRow satisfied={todaysData?.otgFirstShift + todaysData?.drivingFirstShift > 1}>
               <TimeCard>
                 <div>1st Shift</div>
+                {todaysData.shift1stTime}
               </TimeCard>
               <Card >
                 {todaysData?.otgFirstShift + todaysData?.drivingFirstShift} folks signed up! 
@@ -66,6 +68,7 @@ const CurrentInfo = (props) => {
             <CardRow satisfied={todaysData?.otgSecondShift + todaysData?.drivingSecondShift > 1}>
               <TimeCard>
                 <div>2nd Shift</div>
+                {todaysData.shift2ndTime}
               </TimeCard>
               <Card>
                 {todaysData?.otgSecondShift + todaysData?.drivingSecondShift} folks signed up!
@@ -75,6 +78,7 @@ const CurrentInfo = (props) => {
             <CardRow satisfied={todaysData?.breakdownVan > 0}>
               <TimeCard>
                 <div>Breakdown</div>
+                {todaysData.breakdownTime}
               </TimeCard>
               <Card>
                 {todaysData?.breakdownVan ? todaysData?.breakdownVan : 0 } folks signed up!
