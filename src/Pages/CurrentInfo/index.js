@@ -9,18 +9,18 @@ const CurrentInfo = (props) => {
   let [loading, setLoading] = useState(true);
 
   let commentsSetup = [];
-  let comments1st = [];
-  let comments2nd = [];
+  let commentsFirst = [];
+  let commentsSecond = [];
   let commentsBreakdown = [];
 
   todaysData?.setupComments?.forEach(comment => {
     commentsSetup.push(<div>Comment - {comment?.text}</div>);
   });
-  todaysData?.shift1stComments?.forEach(comment => {
-    comments1st.push(<div>Comment - {comment?.text}</div>);
+  todaysData?.firstShiftComments?.forEach(comment => {
+    commentsFirst.push(<div>Comment - {comment?.text}</div>);
   });
-  todaysData?.shift2ndComments?.forEach(comment => {
-    comments2nd.push(<div>Comment - {comment?.text}</div>);
+  todaysData?.secondShiftComments?.forEach(comment => {
+    commentsSecond.push(<div>Comment - {comment?.text}</div>);
   });
   todaysData?.breakdownComments?.forEach(comment => {
     commentsBreakdown.push(<div>Comment - {comment?.text}</div>);
@@ -30,7 +30,7 @@ const CurrentInfo = (props) => {
     if (todaysData?.date) {
       setLoading(false);
     }
-  }, [todaysData])
+  }, [todaysData]);
 
   return (
     <>
@@ -43,45 +43,45 @@ const CurrentInfo = (props) => {
         </Loading>  :  
         <>
           <CardBox>
-            <CardRow satisfied={todaysData?.setupVan > 0}>
+            <CardRow satisfied={todaysData.setupVanCount > 0}>
               <TimeCard>
                 <div>Set-up</div>
                 {todaysData.setupTime}
               </TimeCard>
               <Card>
                 <div>
-                  {todaysData?.setupVan ? todaysData?.setupVan : 0 } folks signed up!
+                  {todaysData.setupVanCount ? todaysData.setupVanCount : 0 } folks signed up!
                   {commentsSetup}
                 </div>
               </Card>
             </CardRow>
-            <CardRow satisfied={todaysData?.otgFirstShift + todaysData?.drivingFirstShift > 1}>
+            <CardRow satisfied={todaysData.firstShiftOTGCount + todaysData.firstShiftDriverCount > 1}>
               <TimeCard>
                 <div>1st Shift</div>
-                {todaysData.shift1stTime}
+                {todaysData.firstShiftTime}
               </TimeCard>
               <Card >
-                {todaysData?.otgFirstShift + todaysData?.drivingFirstShift} folks signed up! 
-                {comments1st}
+                {todaysData.firstShiftOTGCount + todaysData.firstShiftDriverCount} folks signed up! 
+                {commentsFirst}
               </Card>
             </CardRow>
-            <CardRow satisfied={todaysData?.otgSecondShift + todaysData?.drivingSecondShift > 1}>
+            <CardRow satisfied={todaysData.secondShiftOTGCount + todaysData.secondShiftDriverCount > 1}>
               <TimeCard>
                 <div>2nd Shift</div>
-                {todaysData.shift2ndTime}
+                {todaysData.secondShiftTime}
               </TimeCard>
               <Card>
-                {todaysData?.otgSecondShift + todaysData?.drivingSecondShift} folks signed up!
-                {comments2nd}
+                {todaysData.secondShiftOTGCount + todaysData.secondShiftDriverCount} folks signed up!
+                {commentsSecond}
               </Card>
             </CardRow>
-            <CardRow satisfied={todaysData?.breakdownVan > 0}>
+            <CardRow satisfied={todaysData.breakdownVanCount > 0}>
               <TimeCard>
                 <div>Breakdown</div>
                 {todaysData.breakdownTime}
               </TimeCard>
               <Card>
-                {todaysData?.breakdownVan ? todaysData?.breakdownVan : 0 } folks signed up!
+                {todaysData.breakdownVanCount ? todaysData.breakdownVanCount : 0 } folks signed up!
                 {commentsBreakdown}
               </Card>
             </CardRow>

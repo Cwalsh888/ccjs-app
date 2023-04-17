@@ -6,7 +6,7 @@ A project to visualize data from the CCJS group.
 
 - [X] ~~Tighten the parameters in the API call for a faster load. 4/6/23~~
 
-- [ ] Clarify whether data returned is legacy and no longer actively being used.
+- [X] ~~Clarify whether data returned is legacy and no longer actively being used. 4/17/23~~ 
 
 - [ ] Implement prettier into this repo.
 

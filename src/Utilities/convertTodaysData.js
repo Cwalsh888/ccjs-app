@@ -5,59 +5,72 @@ export const convertTodaysData = (data) => {
     console.log(data);
     result = data.map(ele => {
       const container = {};
-      // Specify legacy shifts versus current shifts
-      
-      const setup = ele.jobs.find(ele => ele.name === 'set up')?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
-      const setupCar = ele.jobs.find(ele => ele.name === 'set up car (daily supply needs pickup)')?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
-      const setupVan = ele.jobs.find(ele => ele.name === 'set up van driver')?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
-      const firstShiftDriving = ele.jobs.find(ele => ele.name === 'driving')?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
-      const firstShiftOTG = ele.jobs.find(ele => ele.name === 'otg')?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
-      const drivingFirstShift = ele.jobs.find(ele => ele.name === 'driving (first shift)')?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
-      const otgFirstShift = ele.jobs.find(ele => ele.name === 'otg (first shift)')?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
-      const secondShiftDriving = ele.jobs.findLast(ele => ele.name === 'driving')?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
-      const secondShiftOTG = ele.jobs.findLast(ele => ele.name === 'otg')?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
-      const drivingSecondShift = ele.jobs.find(ele => ele.name === 'driving (second shift)')?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
-      const otgSecondShift = ele.jobs.find(ele => ele.name === 'otg (second shift)')?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
-      const breakdown = ele.jobs.find(ele => ele.name === 'breakdown')?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
-      const breakdownCar = ele.jobs.find(ele => ele.name === 'breakdown car')?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
-      const breakdownVan = ele.jobs.find(ele => ele.name === 'breakdown van driver')?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
-      
-      const setupComments = ele.jobs.find(ele => ele.name === 'set up van driver')?.comments?.concat(ele.jobs.find(ele => ele.name === 'set up car (daily supply needs pickup)')?.comments);
-      const shift1stComments = ele.jobs.find(ele => ele.name === 'otg (first shift)')?.comments?.concat(ele.jobs.find(ele => ele.name === 'driving (first shift)')?.comments);
-      const shift2ndComments = ele.jobs.find(ele => ele.name === 'otg (second shift)')?.comments?.concat(ele.jobs.find(ele => ele.name === 'driving (second shift)')?.comments);
-      const breakdownComments = ele.jobs.find(ele => ele.name === 'breakdownCar')?.comments?.concat(ele.jobs.find(ele => ele.name === 'breakdown van driver')?.comments); 
 
-      const setupTime = ele.jobs.find(ele => ele.name === 'set up van driver')?.starthour + ":" + ele.jobs.find(ele => ele.name === 'set up van driver')?.startminute
-      + " - " + ele.jobs.find(ele => ele.name === 'set up van driver')?.endhour + ":" + ele.jobs.find(ele => ele.name === 'set up van driver')?.endminute;
-      const shift1stTime = ele.jobs.find(ele => ele.name === 'otg (first shift)')?.starthour + ":" + ele.jobs.find(ele => ele.name === 'otg (first shift)')?.startminute
-      + " - " + ele.jobs.find(ele => ele.name === 'otg (first shift)')?.endhour + ":" + ele.jobs.find(ele => ele.name === 'otg (first shift)')?.endminute;
-      const shift2ndTime = ele.jobs.find(ele => ele.name === 'otg (second shift)')?.starthour + ":" + ele.jobs.find(ele => ele.name === 'otg (second shift)')?.startminute
-      + " - " + ele.jobs.find(ele => ele.name === 'otg (second shift)')?.endhour + ":" + ele.jobs.find(ele => ele.name === 'otg (second shift)')?.endminute;
-      const breakdownTime = ele.jobs.find(ele => ele.name === 'breakdown van driver')?.starthour + ":" + ele.jobs.find(ele => ele.name === 'breakdown van driver')?.startminute
-      + " - " + ele.jobs.find(ele => ele.name === 'breakdown van driver')?.endhour + ":" + ele.jobs.find(ele => ele.name === 'breakdown van driver')?.endminute;
-
+      const legacySetup  = ele.jobs.find(ele => ele.name === 'set up');
+      const legacyFirstShiftOTG = ele.jobs.find(ele => ele.name === 'otg');
+      const legacyFirstShiftDrivers = ele.jobs.find(ele => ele.name === 'driving');
+      const legacySecondShiftDrivers = ele.jobs.findLast(ele => ele.name === 'driving');
+      const legacySecondShiftOTG = ele.jobs.findLast(ele => ele.name === 'otg');
+      const legacyBreakdown = ele.jobs.find(ele => ele.name === 'breakdown');
+      const setUpCar = ele.jobs.find(ele => ele.name === 'set up car (daily supply needs pickup)');
+      const setupVan = ele.jobs.find(ele => ele.name === 'set up van driver');
+      const firstShiftDrivers = ele.jobs.find(ele => ele.name === 'driving (first shift)');
+      const firstShiftOTG = ele.jobs.find(ele => ele.name === 'otg (first shift)');
+      const secondShiftDrivers = ele.jobs.find(ele => ele.name === 'driving (second shift)');
+      const secondShiftOTG = ele.jobs.find(ele => ele.name === 'otg (second shift)');
+      const breakdownCar = ele.jobs.find(ele => ele.name === 'breakdown car');
+      const breakdownVan = ele.jobs.find(ele => ele.name === 'breakdown van driver');
       
+      const legacySetupCount = legacySetup?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
+      const legacyFirstShiftDriverCount = legacyFirstShiftDrivers?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
+      const legacyFirstShiftOTGCount = legacyFirstShiftOTG?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
+      const legacySecondShiftDriverCount = legacySecondShiftDrivers?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
+      const legacySecondShiftOTGCount = legacySecondShiftOTG?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
+      const legacyBreakdownCount = legacyBreakdown?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
+      const setupCarCount = setUpCar?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
+      const setupVanCount = setupVan?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
+      const firstShiftDriverCount = firstShiftDrivers?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
+      const firstShiftOTGCount = firstShiftOTG?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
+      const secondShiftDriverCount = secondShiftDrivers?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
+      const secondShiftOTGCount = secondShiftOTG?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
+      const breakdownCarCount = breakdownCar?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
+      const breakdownVanCount = breakdownVan?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
+      
+      const setupComments = setupVan?.comments?.concat(setUpCar?.comments);
+      const firstShiftComments = firstShiftOTG?.comments?.concat(firstShiftDrivers?.comments);
+      const secondShiftComments = secondShiftOTG?.comments?.concat(secondShiftDrivers?.comments);
+      const breakdownComments = breakdownCar?.comments?.concat(breakdownVan?.comments); 
+
+      const setupTime = setupVan?.starthour % 12 + ":" + setupVan?.startminute.toString().padStart(2, '0')
+      + " - " + setupVan?.endhour % 12 + ":" + setupVan?.endminute.toString().padStart(2, '0');
+      const firstShiftTime = firstShiftOTG?.starthour % 12 + ":" + firstShiftOTG?.startminute.toString().padStart(2, '0')
+      + " - " + firstShiftOTG?.endhour % 12 + ":" + firstShiftOTG?.endminute.toString().padStart(2, '0');
+      const secondShiftTime = secondShiftOTG?.starthour % 12 + ":" + secondShiftOTG?.startminute.toString().padStart(2, '0')
+      + " - " + secondShiftOTG?.endhour % 12 + ":" + secondShiftOTG?.endminute.toString().padStart(2, '0');
+      const breakdownTime = breakdownVan?.starthour % 12 + ":" + breakdownVan?.startminute.toString().padStart(2, '0')
+      + " - " + breakdownVan?.endhour % 12 + ":" + breakdownVan?.endminute.toString().padStart(2, '0');
+
+      container.legacySetupCount = legacySetupCount ? legacySetupCount : null;
+      container.legacyFirstShiftDriverCount = legacyFirstShiftDriverCount ? legacyFirstShiftDriverCount : null;
+      container.legacyFirstShiftOTGCount = legacyFirstShiftOTGCount ? legacyFirstShiftOTGCount : null;
+      container.legacySecondShiftDriverCount = legacySecondShiftDriverCount ? legacySecondShiftDriverCount : null;
+      container.legacySecondShiftOTGCount = legacySecondShiftOTGCount ? legacySecondShiftOTGCount : null;
+      container.legacyBreakdownCount = legacyBreakdownCount ? legacyBreakdownCount : null;
       container.date = ele.edate ? ele.edate : null;
-      container.setup = setup ? setup : null;
-      container.setupCar = setupCar ? setupCar : null;
-      container.setupVan = setupVan ? setupVan : null;
+      container.setupCarCount = setupCarCount ? setupCarCount : null;
+      container.setupVanCount = setupVanCount ? setupVanCount : null;
       container.setupComments = setupComments?.length > 0 ? setupComments : null;
       container.setupTime = setupTime ? setupTime : null;
-      container.firstShiftDriver = firstShiftDriving ? firstShiftDriving : null;
-      container.firstShiftOTG = firstShiftOTG ? firstShiftOTG : null;
-      container.drivingFirstShift = drivingFirstShift ? drivingFirstShift : null;
-      container.otgFirstShift = otgFirstShift ? otgFirstShift : null;
-      container.shift1stComments = shift1stComments?.length > 0 ? shift1stComments : null;
-      container.shift1stTime = shift1stTime ? shift1stTime : null;
-      container.secondShiftDriver = secondShiftDriving ? secondShiftDriving : null;
-      container.secondShiftOTG = secondShiftOTG ? secondShiftOTG : null;
-      container.drivingSecondShift = drivingSecondShift ? drivingSecondShift : null;
-      container.otgSecondShift = otgSecondShift ? otgSecondShift : null;
-      container.shift2ndComments = shift2ndComments?.length > 0 ? shift2ndComments : null;
-      container.shift2ndTime = shift2ndTime ? shift2ndTime : null;
-      container.breakdown = breakdown ? breakdown : null;
-      container.breakdownCar = breakdownCar ? breakdownCar : null;
-      container.breakdownVan = breakdownVan ? breakdownVan : null;
+      container.firstShiftDriverCount = firstShiftDriverCount ? firstShiftDriverCount : null;
+      container.firstShiftOTGCount = firstShiftOTGCount ? firstShiftOTGCount : null;
+      container.firstShiftComments = firstShiftComments?.length > 0 ? firstShiftComments : null;
+      container.firstShiftTime = firstShiftTime ? firstShiftTime : null;
+      container.secondShiftDriverCount = secondShiftDriverCount ? secondShiftDriverCount : null;
+      container.secondShiftOTGCount = secondShiftOTGCount ? secondShiftOTGCount : null;
+      container.secondShiftComments = secondShiftComments?.length > 0 ? secondShiftComments : null;
+      container.secondShiftTime = secondShiftTime ? secondShiftTime : null;
+      container.breakdownCarCount = breakdownCarCount ? breakdownCarCount : null;
+      container.breakdownVanCount = breakdownVanCount ? breakdownVanCount : null;
       container.breakdownComments = breakdownComments?.length > 0 ? breakdownComments : null;
       container.breakdownTime = breakdownTime ? breakdownTime : null;
 
