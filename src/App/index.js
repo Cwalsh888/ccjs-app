@@ -5,7 +5,7 @@ import { convertData, convertTodaysData } from '../Utilities';
 
 import { Container, PageContainer, Title, NavigationBox, NavRow, SideMenu, NavButton } from './styled';
 
-const Main = () => {
+const App = () => {
   let [data, setData] = useState([]);
   let [historicaldata, setHistoricalData] = useState([]);
   let [days, setDays] = useState(7);
@@ -79,4 +79,4 @@ const Main = () => {
   );
 }
 
-export default Main;
+export default App;
