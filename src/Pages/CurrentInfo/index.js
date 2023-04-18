@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-import { Title } from '../common';
+import { Title } from "../common";
 
-import { Card, CardBox, CardRow, TimeCard, Loading } from './styled';
+import { Card, CardBox, CardRow, TimeCard, Loading } from "./styled";
 
 const CurrentInfo = (props) => {
   const { todaysData } = props;
@@ -13,16 +13,16 @@ const CurrentInfo = (props) => {
   let commentsSecond = [];
   let commentsBreakdown = [];
 
-  todaysData?.setupComments?.forEach(comment => {
+  todaysData?.setupComments?.forEach((comment) => {
     commentsSetup.push(<div>Comment - {comment?.text}</div>);
   });
-  todaysData?.firstShiftComments?.forEach(comment => {
+  todaysData?.firstShiftComments?.forEach((comment) => {
     commentsFirst.push(<div>Comment - {comment?.text}</div>);
   });
-  todaysData?.secondShiftComments?.forEach(comment => {
+  todaysData?.secondShiftComments?.forEach((comment) => {
     commentsSecond.push(<div>Comment - {comment?.text}</div>);
   });
-  todaysData?.breakdownComments?.forEach(comment => {
+  todaysData?.breakdownComments?.forEach((comment) => {
     commentsBreakdown.push(<div>Comment - {comment?.text}</div>);
   });
 
@@ -34,13 +34,10 @@ const CurrentInfo = (props) => {
 
   return (
     <>
-      <Title>
-        Today's shift
-      </Title>
-      {loading ? 
-        <Loading>
-          This page is loading! Give it 5 seconds.
-        </Loading>  :  
+      <Title>Today's shift</Title>
+      {loading ? (
+        <Loading>This page is loading! Give it 5 seconds.</Loading>
+      ) : (
         <>
           <CardBox>
             <CardRow satisfied={todaysData.setupVanCount > 0}>
@@ -50,28 +47,45 @@ const CurrentInfo = (props) => {
               </TimeCard>
               <Card>
                 <div>
-                  {todaysData.setupVanCount ? todaysData.setupVanCount : 0 } folks signed up!
+                  {todaysData.setupVanCount ? todaysData.setupVanCount : 0}{" "}
+                  folks signed up!
                   {commentsSetup}
                 </div>
               </Card>
             </CardRow>
-            <CardRow satisfied={todaysData.firstShiftOTGCount + todaysData.firstShiftDriverCount > 1}>
+            <CardRow
+              satisfied={
+                todaysData.firstShiftOTGCount +
+                  todaysData.firstShiftDriverCount >
+                1
+              }
+            >
               <TimeCard>
                 <div>1st Shift</div>
                 {todaysData.firstShiftTime}
               </TimeCard>
-              <Card >
-                {todaysData.firstShiftOTGCount + todaysData.firstShiftDriverCount} folks signed up! 
+              <Card>
+                {todaysData.firstShiftOTGCount +
+                  todaysData.firstShiftDriverCount}{" "}
+                folks signed up!
                 {commentsFirst}
               </Card>
             </CardRow>
-            <CardRow satisfied={todaysData.secondShiftOTGCount + todaysData.secondShiftDriverCount > 1}>
+            <CardRow
+              satisfied={
+                todaysData.secondShiftOTGCount +
+                  todaysData.secondShiftDriverCount >
+                1
+              }
+            >
               <TimeCard>
                 <div>2nd Shift</div>
                 {todaysData.secondShiftTime}
               </TimeCard>
               <Card>
-                {todaysData.secondShiftOTGCount + todaysData.secondShiftDriverCount} folks signed up!
+                {todaysData.secondShiftOTGCount +
+                  todaysData.secondShiftDriverCount}{" "}
+                folks signed up!
                 {commentsSecond}
               </Card>
             </CardRow>
@@ -81,15 +95,18 @@ const CurrentInfo = (props) => {
                 {todaysData.breakdownTime}
               </TimeCard>
               <Card>
-                {todaysData.breakdownVanCount ? todaysData.breakdownVanCount : 0 } folks signed up!
+                {todaysData.breakdownVanCount
+                  ? todaysData.breakdownVanCount
+                  : 0}{" "}
+                folks signed up!
                 {commentsBreakdown}
               </Card>
             </CardRow>
           </CardBox>
         </>
-      }      
+      )}
     </>
   );
-}
+};
 
 export default CurrentInfo;

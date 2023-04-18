@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   /* border: 5px solid purple; */
@@ -17,13 +17,13 @@ export const FlexBox = styled.div`
 export const FlexItems = styled.div`
   flex: 1 0 14%;
   border: 1px solid black;
-  background-color: ${props => props.color || '#9C83BF'};
+  background-color: ${(props) => props.color || "#9C83BF"};
 
   @media (max-width: 425px) {
-    font-size: .73em;
+    font-size: 0.73em;
   }
 `;
 
 export const Loading = styled.div`
   font-size: 4em;
-`
+`;

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
@@ -18,7 +18,7 @@ export const PageContainer = styled.div`
   text-align: center;
   overflow-y: auto;
   /* border: 5px solid cyan; */
-`
+`;
 
 export const Title = styled.h1`
   height: 9%;
@@ -57,12 +57,12 @@ export const SideMenu = styled.div`
   display: flex;
   justify-content: center;
   height: 50%;
-  visibility: ${props => props.hidden ? 'hidden' : 'visible'};
+  visibility: ${(props) => (props.hidden ? "hidden" : "visible")};
 `;
 
 export const NavButton = styled.button`
   width: 25%;
-  background-color: #9C83BF;
+  background-color: #9c83bf;
   border-radius: 1em;
   /* border: 5px solid orange; */
 `;

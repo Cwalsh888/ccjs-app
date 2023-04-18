@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const CardBox = styled.div`
   display: flex;
   flex-direction: column;
-  gap: .5em;
+  gap: 0.5em;
   justify-content: space-around;
   width: 100%;
   height: 85%;
@@ -16,7 +16,7 @@ export const CardRow = styled.div`
   font-size: 1.5em;
   justify-content: center;
   align-items: center;
-  background-color: ${props => props.satisfied ? '#6F9838' : '#E43131'};
+  background-color: ${(props) => (props.satisfied ? "#6F9838" : "#E43131")};
   border: 2px solid black;
   border-radius: 1em;
 
@@ -37,4 +37,4 @@ export const TimeCard = styled.div`
 
 export const Loading = styled.div`
   font-size: 4em;
-`
+`;
