@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-import { CurrentInfo, Historical, FunFacts, About } from "../Pages";
-import { convertData, convertTodaysData } from "../Utilities";
+import { CurrentInfo, Historical, FunFacts, About } from "@pages";
+import { convertData, convertTodaysData } from "@utils";
 
 import {
   Container,

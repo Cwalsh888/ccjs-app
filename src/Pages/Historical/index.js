@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { Title } from "../common";
+import { Title } from "@common";
 
 import { Container, FlexBox, FlexItems, Loading } from "./styled";
 
