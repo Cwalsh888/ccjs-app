@@ -12,7 +12,8 @@ A project to visualize data from the CCJS group.
 
 - [ ] Update the site into "Dark Mode" Initially
 
-# Recently Done
+- [ ] Custom edit prettier to my preference
+### Recently Done
 
 - [x] Add an import alias for Pages, Common, Utilites, etc 4/20/23
 

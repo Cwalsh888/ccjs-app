@@ -2,7 +2,6 @@ export const convertTodaysData = (data) => {
   let result = [];
 
   if (data.length > 0) {
-    console.log(data);
     result = data.map((ele) => {
       const container = {};
 
