@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { Title } from "@common";
 import { convertTodaysData } from "@utils";
-import { Card, CardBox, CardRow, TimeCard, Loading } from "./styled";
+import { Container, Card, CardBox, CardRow, TimeCard, Loading } from "./styled";
 
 const Home = () => {
   const [todaysData, setTodaysData] = useState([]);
@@ -41,7 +41,12 @@ const Home = () => {
   }, [todaysData]);
 
   return (
-    <>
+    <Container 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: .35 }}
+    >
       <Title>Today's shift</Title>
       {loading ? (
         <Loading>This page is loading! Give it 5 seconds.</Loading>
@@ -113,7 +118,7 @@ const Home = () => {
           </CardBox>
         </>
       )}
-    </>
+    </Container>
   );
 };
 

@@ -6,11 +6,11 @@ A project to visualize data from the CCJS group.
 
 - [ ] Can load the Historical data page from the start date in the URL.
 
-- [ ] Animate between pages with framer-motion.
+- [ ] Can get to next page by swiping right on phone.
 
 - [ ] Create a dark mode version of website.
 
-- [ ] Parse the data more to get Fun Facts Data.
+- [ ] Parse the data more to get Fun Facts.
 
 ## Tech Debt
 
@@ -26,7 +26,11 @@ A project to visualize data from the CCJS group.
 
 - [ ] Fix Nav Bar Visual
 
+- [ ] Configure autoformat on Save on my VS code
+
 ## Recently Done
+
+- [X] ~~Animate between pages with framer-motion. 5/1/23~~
 
 - [x] ~~Add routing to my Application. 5/1/23~~
 

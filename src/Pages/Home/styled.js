@@ -1,4 +1,10 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
+
+export const Container = styled(motion.div)`
+  /* border: 5px solid red; */
+  height: 100%;
+`;
 
 export const CardBox = styled.div`
   display: flex;

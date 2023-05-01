@@ -34,7 +34,12 @@ const Historical = () => {
   }, [historicaldata]);
 
   return (
-    <Container>
+    <Container
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: .45 }}
+    >
       <Title>Past Shifts</Title>
       {loading ? (
         <Loading>This page is loading! Give it 5 seconds.</Loading>

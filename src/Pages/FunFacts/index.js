@@ -1,10 +1,15 @@
 import { Title } from "@common";
 
-import { Summary } from "./styled";
+import { Container, Summary } from "./styled";
 
 const FunFacts = () => {
   return (
-    <>
+    <Container
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: .45 }}
+    >
       <Title>More Data</Title>
       <Summary>
         Data to parse through later:
@@ -15,7 +20,7 @@ const FunFacts = () => {
           <li>Add the percentage for each days' "fullshift" rate</li>
         </ul>
       </Summary>
-    </>
+    </Container>
   );
 };
 

@@ -1,10 +1,15 @@
 import { Title } from "@common";
 
-import { Summary } from "./styled";
+import { Container, Summary } from "./styled";
 
 const About = () => {
   return (
-    <>
+    <Container
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: .45 }}
+    >
       <Title>About Me</Title>
       <Summary>
         Hello! <br />
@@ -12,7 +17,7 @@ const About = () => {
         I made this site to visualize some of the data from the CCJS group.{" "}
         <br />
       </Summary>
-    </>
+    </Container>
   );
 };
 
