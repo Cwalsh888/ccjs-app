@@ -2,6 +2,16 @@
 
 A project to visualize data from the CCJS group.
 
+## Future Upgrades
+
+- [ ] Can load the Historical data page from the start date in the URL.
+
+- [ ] Animate between pages with framer-motion.
+
+- [ ] Create a dark mode version of website.
+
+- [ ] Parse the data more to get Fun Facts Data.
+
 ## Tech Debt
 
 - [ ] Move the data transformations on the front-end to the server.
@@ -10,9 +20,10 @@ A project to visualize data from the CCJS group.
 
 - [ ] Add a proper loading spinner.
 
-- [ ] Update the site into "Dark Mode" Initially
+- [ ] Custom edit prettier to my preference.
 
-- [ ] Custom edit prettier to my preference
+- [ ] Add routing to my Application.
+
 ### Recently Done
 
 - [x] Add an import alias for Pages, Common, Utilites, etc 4/20/23
