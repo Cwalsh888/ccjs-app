@@ -22,9 +22,13 @@ A project to visualize data from the CCJS group.
 
 - [ ] Custom edit prettier to my preference.
 
-- [ ] Add routing to my Application.
+- [ ] Reformat Historical page to have a dynamic table again.
 
-### Recently Done
+- [ ] Fix Nav Bar Visual
+
+## Recently Done
+
+- [x] ~~Add routing to my Application. 5/1/23~~
 
 - [x] Add an import alias for Pages, Common, Utilites, etc 4/20/23
 

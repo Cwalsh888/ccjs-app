@@ -8,7 +8,7 @@ module.exports = {
         aliases: {
           "@utils": "./src/Utilities/index.js",
           "@pages": "./src/Pages/index.js",
-          "@common": "./src/Pages/common.js"
+          "@common": "./src/Pages/common.js",
         },
       },
     },

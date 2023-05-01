@@ -1,14 +1,30 @@
 import { useState, useEffect } from "react";
 
+import { convertData } from '@utils';
 import { Title } from "@common";
 
 import { Container, FlexBox, FlexItems, Loading } from "./styled";
 
-const Historical = (props) => {
-  const { historicaldata } = props;
+const Historical = () => {
+
+  const [historicaldata, setHistoricalData] = useState([]);
   let [loading, setLoading] = useState(true);
   let [weekday, setWeekday] = useState(0);
+  let days = 60;
   const emptyblocks = [null, null, null, null, null, null];
+
+  useEffect(() => {
+    fetch(
+      `https://ccjs-server.onrender.com/getHistoricalData?` +
+        new URLSearchParams({
+          days: days,
+        })
+    )
+      .then((response) => response.json())
+      .then((result) => setHistoricalData(convertData(result.data)))
+      .catch((error) => console.log(error.message));
+  }, [days]);
+
 
   useEffect(() => {
     if (historicaldata[0]?.date) {

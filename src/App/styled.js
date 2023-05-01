@@ -33,36 +33,3 @@ export const Title = styled.h1`
     height: 6%;
   }
 `;
-
-export const NavigationBox = styled.div`
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  height: 10%;
-  margin: auto;
-  /* border: 5px solid yellow; */
-`;
-
-export const NavRow = styled.div`
-  display: flex;
-  height: 75%;
-  justify-content: center;
-`;
-
-export const SideMenu = styled.div`
-  display: flex;
-  justify-content: center;
-  height: 50%;
-  visibility: ${(props) => (props.hidden ? "hidden" : "visible")};
-`;
-
-export const NavButton = styled.button`
-  width: 25%;
-  background-color: #9c83bf;
-  border-radius: 1em;
-  /* border: 5px solid orange; */
-`;

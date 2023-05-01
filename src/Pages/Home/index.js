@@ -1,11 +1,19 @@
 import { useState, useEffect } from "react";
 
 import { Title } from "@common";
-
+import { convertTodaysData } from "@utils";
 import { Card, CardBox, CardRow, TimeCard, Loading } from "./styled";
 
-const CurrentInfo = (props) => {
-  const { todaysData } = props;
+const Home = () => {
+  const [todaysData, setTodaysData] = useState([]);
+
+  useEffect(() => {
+    fetch(`https://ccjs-server.onrender.com/getTodaysData`)
+      .then((response) => response.json())
+      .then((result) => setTodaysData(convertTodaysData(result.data)[0]))
+      .catch((error) => console.log(error.message));
+  }, []);
+
   let [loading, setLoading] = useState(true);
 
   let commentsSetup = [];
@@ -109,4 +117,4 @@ const CurrentInfo = (props) => {
   );
 };
 
-export default CurrentInfo;
+export default Home;
