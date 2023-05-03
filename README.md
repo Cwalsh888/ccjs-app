@@ -30,9 +30,9 @@ A project to visualize data from the CCJS group.
 
 ## Recently Done
 
-- [X] ~~Animate between pages with framer-motion. 5/1/23~~
+- [X] Animate between pages with framer-motion. 5/1/23
 
-- [x] ~~Add routing to my Application. 5/1/23~~
+- [x] Add routing to my Application. 5/1/23
 
 - [x] Add an import alias for Pages, Common, Utilites, etc 4/20/23
 
