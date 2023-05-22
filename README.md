@@ -28,9 +28,13 @@ A project to visualize data from the CCJS group.
 
 - [ ] Configure autoformat on Save on my VS code
 
+- [ ] Can't land directly on other pages.
+
+- [ ] Update the navicon
+
 ## Recently Done
 
-- [X] Animate between pages with framer-motion. 5/1/23
+- [x] Animate between pages with framer-motion. 5/1/23
 
 - [x] Add routing to my Application. 5/1/23
 
@@ -47,9 +51,3 @@ A project to visualize data from the CCJS group.
 - [x] Add a toggle on the Historical page to show more dates 4/14/23
 
 - [x] Tighten the parameters in the API call for a faster load. 4/6/23
-
-
-
-
-
-
