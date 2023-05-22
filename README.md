@@ -28,26 +28,12 @@ A project to visualize data from the CCJS group.
 
 - [ ] Configure autoformat on Save on my VS code
 
-- [ ] Can't land directly on other pages.
-
 - [ ] Update the navicon
 
 ## Recently Done
 
+- [x] Can't land directly on other pages. 5/21/23
+
 - [x] Animate between pages with framer-motion. 5/1/23
 
 - [x] Add routing to my Application. 5/1/23
-
-- [x] Add an import alias for Pages, Common, Utilites, etc 4/20/23
-
-- [x] Implement prettier into this repo. 4/18/23
-
-- [x] Clarify whether data returned is legacy and no longer actively being used. 4/17/23
-
-- [x] Add a index file to Pages so that I can import them all from the same line. 4/16/23
-
-- [x] Smart Dynamic Day Order on the Historical Page 4/15/23
-
-- [x] Add a toggle on the Historical page to show more dates 4/14/23
-
-- [x] Tighten the parameters in the API call for a faster load. 4/6/23
