@@ -22,9 +22,7 @@ const NavBar = () => {
         </NavButton>
       </SideMenu>
       <NavRow>
-        <NavButton to="/">
-          Today's Info
-        </NavButton>
+        <NavButton to="/">Today</NavButton>
         <NavButton to="/historical">Past Data</NavButton>
         <NavButton to="/funfacts">More Data</NavButton>
         <NavButton to="/about">About</NavButton>

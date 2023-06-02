@@ -18,16 +18,23 @@ export const NavRow = styled.div`
   display: flex;
   height: 75%;
   justify-content: center;
-  /* border: 5px solid red; */
 `;
 
 export const NavButton = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 25%;
-  color: white;
+  font-size: 1.2em;
+  color: black;
   text-decoration: none;
   background-color: #9c83bf;
   border: 2px outset #736b5e;
   border-radius: 1em;
+
+  @media (max-width: 425px) {
+    font-size: .9em;
+  }
 `;
 
 export const SideMenu = styled.div`

@@ -24,16 +24,12 @@ A project to visualize data from the CCJS group.
 
 - [ ] Reformat Historical page to have a dynamic table again.
 
-- [ ] Fix Nav Bar Visual
-
 - [ ] Configure autoformat on Save on my VS code
 
 - [ ] Update the navicon
 
 ## Recently Done
 
+- [x] Fix Nav Bar Visual. 6/1/23
+
 - [x] Can't land directly on other pages. 5/21/23
-
-- [x] Animate between pages with framer-motion. 5/1/23
-
-- [x] Add routing to my Application. 5/1/23
