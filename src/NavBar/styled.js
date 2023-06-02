@@ -26,6 +26,7 @@ export const NavButton = styled(Link)`
   justify-content: center;
   width: 25%;
   font-size: 1.2em;
+  font-weight: bold;
   color: black;
   text-decoration: none;
   background-color: #9c83bf;
