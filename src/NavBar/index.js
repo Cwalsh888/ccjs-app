@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams, useLocation } from 'react-router-dom'
 
 import {
   NavigationBox,
@@ -8,16 +9,32 @@ import {
 } from "./styled";
 
 const NavBar = () => {
-  let [days, setDays] = useState(7);
+  // eslint-disable-next-line
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [days, setDays] = useState(60);
+  const isHistoryPage = useLocation().pathname.startsWith("/historical");
+
+  useEffect(() => {
+    if (isHistoryPage) {
+      setSearchParams({days: days});
+    }
+    // eslint-disable-next-line
+  }, [days, isHistoryPage])
+
+  const addDays = (num) => {
+    setDays(days + num);
+  }
+
+  const resetDays = () => {
+    setDays(60);
+  }
 
   return (
     <NavigationBox>
-      {/* <SideMenu hidden={page !== "historical"}> */}
-      {/* Have to overhaul how these buttons work. Potentially edit the url with makes the call go off again */}
-      <SideMenu hidden={true}>
-        <NavButton onClick={() => setDays(7)}>Reset Table</NavButton>
-        <NavButton onClick={() => setDays(days + 7)}>Add 1 week</NavButton>
-        <NavButton onClick={() => setDays(days + 182)}>
+      <SideMenu hidden={!isHistoryPage}>
+        <NavButton onClick={() => resetDays()}>Reset Table</NavButton>
+        <NavButton onClick={() => addDays(7)}>Add 1 week</NavButton>
+        <NavButton onClick={() => addDays(180)}>
           Add 6 months
         </NavButton>
       </SideMenu>

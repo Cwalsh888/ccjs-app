@@ -14,12 +14,12 @@ const Home = () => {
       .catch((error) => console.log(error.message));
   }, []);
 
-  let [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
-  let commentsSetup = [];
-  let commentsFirst = [];
-  let commentsSecond = [];
-  let commentsBreakdown = [];
+  const commentsSetup = [];
+  const commentsFirst = [];
+  const commentsSecond = [];
+  const commentsBreakdown = [];
 
   todaysData?.setupComments?.forEach((comment) => {
     commentsSetup.push(<div>Comment - {comment?.text}</div>);

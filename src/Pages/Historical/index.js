@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useSearchParams } from 'react-router-dom';
 
 import { convertData } from '@utils';
 import { Title } from "@common";
@@ -6,25 +7,33 @@ import { Title } from "@common";
 import { Container, FlexBox, FlexItems, Loading } from "./styled";
 
 const Historical = () => {
-
   const [historicaldata, setHistoricalData] = useState([]);
-  let [loading, setLoading] = useState(true);
-  let [weekday, setWeekday] = useState(0);
-  let days = 60;
+  const [loading, setLoading] = useState(true);
+  const [weekday, setWeekday] = useState(0);
+  const [days, setDays] = useState();
+  const [searchParams] = useSearchParams();
   const emptyblocks = [null, null, null, null, null, null];
 
   useEffect(() => {
-    fetch(
-      `https://ccjs-server.onrender.com/getHistoricalData?` +
-        new URLSearchParams({
-          days: days,
-        })
-    )
-      .then((response) => response.json())
-      .then((result) => setHistoricalData(convertData(result.data)))
-      .catch((error) => console.log(error.message));
+    if (days) {
+      fetch(
+        `https://ccjs-server.onrender.com/getHistoricalData?` +
+          new URLSearchParams({
+            days: days
+          })
+      )
+        .then((response) => response.json())
+        .then((result) => setHistoricalData(convertData(result.data)))
+        .catch((error) => console.log(error.message));
+    }
   }, [days]);
 
+  useEffect(() => {
+    if (searchParams.get('days')) {
+      setDays(searchParams.get('days'));
+    }
+    // eslint-disable-next-line
+  }, [searchParams.get('days')]);
 
   useEffect(() => {
     if (historicaldata[0]?.date) {
