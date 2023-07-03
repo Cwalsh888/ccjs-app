@@ -22,12 +22,13 @@ A project to visualize data from the CCJS group.
 
 - [ ] Update the navicon
 
-- [ ] Seperate the Homepage code into components.
+- [ ] Map ShiftCard components into Homepage and add a key.
 
 - [ ] Historical page needs to properly handle user manipulating search query. 
   - Shows correct table, but doesn't update the searchParam. 
 
 ## Recently Done
+- [x] Seperate the Homepage code into components. 7/3/23
 
 - [x] Can load the Historical data page from the start date in the URL. 7/2/23
 

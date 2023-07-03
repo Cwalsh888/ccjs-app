@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 
 import { Title } from "@common";
+import { ShiftCard } from "@components";
 import { convertTodaysData } from "@utils";
-import { Container, Card, CardBox, CardRow, TimeCard, Loading } from "./styled";
+
+import { Container, CardBox, Loading } from "./styled";
 
 const Home = () => {
   const [todaysData, setTodaysData] = useState([]);
@@ -53,68 +55,30 @@ const Home = () => {
       ) : (
         <>
           <CardBox>
-            <CardRow satisfied={todaysData.setupVanCount > 0}>
-              <TimeCard>
-                <div>Set-up</div>
-                {todaysData.setupTime}
-              </TimeCard>
-              <Card>
-                <div>
-                  {todaysData.setupVanCount ? todaysData.setupVanCount : 0}{" "}
-                  folks signed up!
-                  {commentsSetup}
-                </div>
-              </Card>
-            </CardRow>
-            <CardRow
-              satisfied={
-                todaysData.firstShiftOTGCount +
-                  todaysData.firstShiftDriverCount >
-                1
-              }
-            >
-              <TimeCard>
-                <div>1st Shift</div>
-                {todaysData.firstShiftTime}
-              </TimeCard>
-              <Card>
-                {todaysData.firstShiftOTGCount +
-                  todaysData.firstShiftDriverCount}{" "}
-                folks signed up!
-                {commentsFirst}
-              </Card>
-            </CardRow>
-            <CardRow
-              satisfied={
-                todaysData.secondShiftOTGCount +
-                  todaysData.secondShiftDriverCount >
-                1
-              }
-            >
-              <TimeCard>
-                <div>2nd Shift</div>
-                {todaysData.secondShiftTime}
-              </TimeCard>
-              <Card>
-                {todaysData.secondShiftOTGCount +
-                  todaysData.secondShiftDriverCount}{" "}
-                folks signed up!
-                {commentsSecond}
-              </Card>
-            </CardRow>
-            <CardRow satisfied={todaysData.breakdownVanCount > 0}>
-              <TimeCard>
-                <div>Breakdown</div>
-                {todaysData.breakdownTime}
-              </TimeCard>
-              <Card>
-                {todaysData.breakdownVanCount
-                  ? todaysData.breakdownVanCount
-                  : 0}{" "}
-                folks signed up!
-                {commentsBreakdown}
-              </Card>
-            </CardRow>
+            <ShiftCard 
+              title={'Set-up'}
+              time={todaysData.setupTime} 
+              signedUp={todaysData.setupVanCount} 
+              comments={commentsSetup} 
+            />
+            <ShiftCard 
+              title={'1st Shift'} 
+              time={todaysData.firstShiftTime} 
+              signedUp={todaysData.firstShiftOTGCount + todaysData.firstShiftDriverCount} 
+              comments={commentsFirst} 
+            />
+            <ShiftCard 
+              title={'2nd Shift'} 
+              time={todaysData.secondShiftTime} 
+              signedUp={todaysData.secondShiftOTGCount + todaysData.secondShiftDriverCount} 
+              comments={commentsSecond} 
+            />
+            <ShiftCard 
+              title={'Breakdown'} 
+              time={todaysData.breakdownTime} 
+              signedUp={todaysData.breakdownVanCount} 
+              comments={commentsBreakdown} 
+            />
           </CardBox>
         </>
       )}
