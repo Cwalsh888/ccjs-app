@@ -28,6 +28,8 @@ const Historical = () => {
     }
   }, [days]);
 
+  // Wrapper around searchParams into days, otherwise searchParams causes 2 network calls. React-router bug. 
+  // set --> null --> set = 2 network calls.
   useEffect(() => {
     if (searchParams.get('days')) {
       setDays(searchParams.get('days'));

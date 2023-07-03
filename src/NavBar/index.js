@@ -16,7 +16,11 @@ const NavBar = () => {
 
   useEffect(() => {
     if (isHistoryPage) {
-      setSearchParams({days: days});
+      if (searchParams.get('days')) {
+        setDays(parseInt(searchParams.get('days')));
+      } else {
+        setSearchParams({days: days});
+      }
     }
     // eslint-disable-next-line
   }, [days, isHistoryPage])
