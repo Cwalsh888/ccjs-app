@@ -22,9 +22,13 @@ A project to visualize data from the CCJS group.
 
 - [ ] Map ShiftCard components into Homepage and add a key.
 
-- [ ] Look into caching data.
+- [ ] Add error checking into my data calls.
+
+- [ ] Try to add some padding to table if I can.
 
 ## Recently Done
+- [x] Look into caching data. 7/5/23
+
 - [x] Add padding to sides of main Shift Cards. 7/5/23
 
 - [x] Historical page needs to properly handle user manipulating search query. 7/3/23

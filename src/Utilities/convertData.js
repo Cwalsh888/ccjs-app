@@ -1,7 +1,7 @@
 export const convertData = (data) => {
   let result = [];
 
-  if (data.length > 0) {
+  if (data && data.length > 0) {
     result = data.map((ele) => {
       const container = {};
 

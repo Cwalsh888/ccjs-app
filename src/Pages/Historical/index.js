@@ -7,37 +7,20 @@ import { Title } from "@common";
 
 import { Container, FlexBox, FlexItems, Loading } from "./styled";
 
-// const fetchData = async (days) => {
-//   const res = await fetch(`https://ccjs-server.onrender.com/getHistoricalData?` +
-//               new URLSearchParams({
-//                 days: days
-//               }));
-//   return res.json();
-// };
-
 const Historical = () => {
   const [historicaldata, setHistoricalData] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [weekday, setWeekday] = useState(0);
   const [days, setDays] = useState();
   const [searchParams] = useSearchParams();
   const emptyblocks = [null, null, null, null, null, null];
 
-  // const { data, status, isLoading } = useQuery("past", fetchData(days));
-
-  useEffect(() => {
-    if (days) {
-      fetch(
-        `https://ccjs-server.onrender.com/getHistoricalData?` +
-          new URLSearchParams({
-            days: days
-          })
-      )
-        .then((response) => response.json())
-        .then((result) => setHistoricalData(convertData(result.data)))
-        .catch((error) => console.log(error.message));
-    }
-  }, [days]);
+  const { data, status, isLoading } = useQuery(['past', days], async () => {
+    const res = await fetch(`https://ccjs-server.onrender.com/getHistoricalData?` +
+                new URLSearchParams({
+                  days: days
+                }));
+    return res.json();
+  });
 
   // Wrapper around searchParams into days, otherwise searchParams causes 2 network calls. React-router bug. 
   // set --> null --> set = 2 network calls.
@@ -51,9 +34,15 @@ const Historical = () => {
   useEffect(() => {
     if (historicaldata[0]?.date) {
       setWeekday(new Date(historicaldata[0].date).getDay());
-      setLoading(false);
     }
   }, [historicaldata]);
+
+  useEffect(() => {
+    console.log(data);
+    if (data) {
+      setHistoricalData(convertData(data.data)); // TODO: Clean up
+    }
+  }, [data])
 
   return (
     <Container
@@ -63,7 +52,7 @@ const Historical = () => {
       transition={{ duration: .45 }}
     >
       <Title>Past Shifts</Title>
-      {loading ? (
+      {isLoading ? (
         <Loading>This page is loading! Give it 5 seconds.</Loading>
       ) : (
         <FlexBox>
