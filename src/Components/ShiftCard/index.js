@@ -28,11 +28,9 @@ const ShiftCard = (props) => {
         {time}
       </LeftSide>
       <RightSide>
-        <div>
-          {signedUp ? signedUp : 0}{" "}
-          folks signed up!
-          {comments}
-        </div>
+        {signedUp ? signedUp : 0}{" "}
+        folks signed up!
+        {comments}
       </RightSide>
     </Card>
   );

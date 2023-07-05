@@ -71,9 +71,7 @@ const Historical = () => {
           {historicaldata.map((item) => (
             <FlexItems
               key={item.date}
-              color={
-                item.fullDay ? "#6F9838" : item.halfDay ? "#E7E74B" : "#E43131"
-              }
+              color={item.fullDay ? "#6F9838" : item.halfDay ? "#E7E74B" : "#E43131"}
             >
               {item.month}/{item.day}
             </FlexItems>
