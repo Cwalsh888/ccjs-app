@@ -1,10 +1,19 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from 'react-router-dom';
+import { useQuery } from "react-query";
 
 import { convertData } from '@utils';
 import { Title } from "@common";
 
 import { Container, FlexBox, FlexItems, Loading } from "./styled";
+
+// const fetchData = async (days) => {
+//   const res = await fetch(`https://ccjs-server.onrender.com/getHistoricalData?` +
+//               new URLSearchParams({
+//                 days: days
+//               }));
+//   return res.json();
+// };
 
 const Historical = () => {
   const [historicaldata, setHistoricalData] = useState([]);
@@ -13,6 +22,8 @@ const Historical = () => {
   const [days, setDays] = useState();
   const [searchParams] = useSearchParams();
   const emptyblocks = [null, null, null, null, null, null];
+
+  // const { data, status, isLoading } = useQuery("past", fetchData(days));
 
   useEffect(() => {
     if (days) {

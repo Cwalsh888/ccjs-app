@@ -13,6 +13,11 @@ export const CardBox = styled.div`
   justify-content: space-around;
   width: 100%;
   height: 85%;
+  padding: 0 5em;
+
+  @media (max-width: 425px) {
+    padding: 0 1.5em;
+  }
   /* border: 10px solid blue; */
 `;
 

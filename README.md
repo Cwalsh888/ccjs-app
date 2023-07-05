@@ -12,9 +12,7 @@ A project to visualize data from the CCJS group.
 
 ## Tech Debt
 
-- [ ] Add a proper loading spinner.
-
-- [ ] Add a skeleton version of these pages to be shown while loading.
+- [ ] Add a loading spinner OR skeleton while pages loading
 
 - [ ] Custom edit prettier to my preference.
 
@@ -27,6 +25,8 @@ A project to visualize data from the CCJS group.
 - [ ] Look into caching data.
 
 ## Recently Done
+- [x] Add padding to sides of main Shift Cards. 7/5/23
+
 - [x] Historical page needs to properly handle user manipulating search query. 7/3/23
 
 - [x] Seperate the Homepage code into components. 7/3/23

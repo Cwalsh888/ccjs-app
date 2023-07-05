@@ -25,12 +25,11 @@ const ShiftCard = (props) => {
     <Card satisfied={satisfied(signedUp, title)}>
       <LeftSide>
         <div>{title}</div>
-        {time}
+        <div>{time}</div>
       </LeftSide>
       <RightSide>
-        {signedUp ? signedUp : 0}{" "}
-        folks signed up!
-        {comments}
+        <div>{signedUp ? signedUp : 0} folks signed up!</div>
+        {comments ? comments.map((comment) => <div>Comment - {comment?.text}</div>) : null}
       </RightSide>
     </Card>
   );

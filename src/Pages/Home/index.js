@@ -22,24 +22,6 @@ const Home = () => {
     }
   }, [data]);
 
-  const commentsSetup = [];
-  const commentsFirst = [];
-  const commentsSecond = [];
-  const commentsBreakdown = [];
-
-  todaysData?.setupComments?.forEach((comment) => {
-    commentsSetup.push(<div>Comment - {comment?.text}</div>);
-  });
-  todaysData?.firstShiftComments?.forEach((comment) => {
-    commentsFirst.push(<div>Comment - {comment?.text}</div>);
-  });
-  todaysData?.secondShiftComments?.forEach((comment) => {
-    commentsSecond.push(<div>Comment - {comment?.text}</div>);
-  });
-  todaysData?.breakdownComments?.forEach((comment) => {
-    commentsBreakdown.push(<div>Comment - {comment?.text}</div>);
-  });
-
   return (
     <Container 
       initial={{ opacity: 0 }}
@@ -57,25 +39,25 @@ const Home = () => {
               title={'Set-up'}
               time={todaysData.setupTime} 
               signedUp={todaysData.setupVanCount} 
-              comments={commentsSetup} 
+              comments={todaysData.setupComments} 
             />
             <ShiftCard 
               title={'1st Shift'} 
               time={todaysData.firstShiftTime} 
               signedUp={todaysData.firstShiftOTGCount + todaysData.firstShiftDriverCount} 
-              comments={commentsFirst} 
+              comments={todaysData.firstShiftComments} 
             />
             <ShiftCard 
               title={'2nd Shift'} 
               time={todaysData.secondShiftTime} 
               signedUp={todaysData.secondShiftOTGCount + todaysData.secondShiftDriverCount} 
-              comments={commentsSecond} 
+              comments={todaysData.secondShiftComments} 
             />
             <ShiftCard 
               title={'Breakdown'} 
               time={todaysData.breakdownTime} 
               signedUp={todaysData.breakdownVanCount} 
-              comments={commentsBreakdown} 
+              comments={todaysData.breakdownComments} 
             />
           </CardBox>
         </>
