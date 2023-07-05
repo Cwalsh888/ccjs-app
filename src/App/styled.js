@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { QueryClientProvider } from 'react-query';
 
-export const Container = styled.div`
+export const Container = styled(QueryClientProvider)`
   width: 100%;
   height: 100%;
   padding: 1em;

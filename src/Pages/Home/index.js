@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useQuery } from "react-query";
 
 import { Title } from "@common";
 import { ShiftCard } from "@components";
@@ -6,17 +7,20 @@ import { convertTodaysData } from "@utils";
 
 import { Container, CardBox, Loading } from "./styled";
 
+const fetchData = async () => {
+  const res = await fetch("https://ccjs-server.onrender.com/getTodaysData");
+  return res.json();
+};
+
 const Home = () => {
   const [todaysData, setTodaysData] = useState([]);
+  const { data, status, isLoading } = useQuery("today", fetchData);
 
   useEffect(() => {
-    fetch(`https://ccjs-server.onrender.com/getTodaysData`)
-      .then((response) => response.json())
-      .then((result) => setTodaysData(convertTodaysData(result.data)[0]))
-      .catch((error) => console.log(error.message));
-  }, []);
-
-  const [loading, setLoading] = useState(true);
+    if (data) {
+      setTodaysData(convertTodaysData(data));
+    }
+  }, [data]);
 
   const commentsSetup = [];
   const commentsFirst = [];
@@ -36,12 +40,6 @@ const Home = () => {
     commentsBreakdown.push(<div>Comment - {comment?.text}</div>);
   });
 
-  useEffect(() => {
-    if (todaysData?.date) {
-      setLoading(false);
-    }
-  }, [todaysData]);
-
   return (
     <Container 
       initial={{ opacity: 0 }}
@@ -50,7 +48,7 @@ const Home = () => {
       transition={{ duration: .35 }}
     >
       <Title>Today's shift</Title>
-      {loading ? (
+      {isLoading ? (
         <Loading>This page is loading! Give it 5 seconds.</Loading>
       ) : (
         <>
