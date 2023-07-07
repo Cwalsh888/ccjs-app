@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 export const Container = styled(motion.div)`
-  /* border: 5px solid red; */
   height: 100%;
 `;
 
@@ -18,5 +17,4 @@ export const CardBox = styled.div`
   @media (max-width: 425px) {
     padding: 0 1.5em;
   }
-  /* border: 10px solid blue; */
 `;

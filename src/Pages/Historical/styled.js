@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 export const Container = styled(motion.div)`
-  /* border: 5px solid purple; */
   height: 100%;
 `;
 
@@ -12,7 +11,6 @@ export const FlexBox = styled.div`
   justify-content: space-around;
   width: 100%;
   height: auto;
-  /* border: 10px solid blue; */
   padding: 0 5em 10%;
 
   @media (max-width: 425px) {

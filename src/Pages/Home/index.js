@@ -32,7 +32,7 @@ const Home = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: .25 }}
     >
-      <Title>Today's shift</Title>
+      <Title>Today's Shift</Title>
       <CardBox>
         {todaysData.map((shift) => {
           return (

@@ -11,7 +11,6 @@ export const NavigationBox = styled.div`
   width: 90%;
   height: 10%;
   margin: auto;
-  /* border: 5px solid yellow; */
 `;
 
 export const NavRow = styled.div`
