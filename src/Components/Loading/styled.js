@@ -13,6 +13,7 @@ export const Loader = styled.div`
   display: inline-block;
   width: 80px;
   height: 80px;
+  margin-top: 15em;
 
   &:after {
     content: " ";

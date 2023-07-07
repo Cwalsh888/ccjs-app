@@ -21,22 +21,18 @@ A project to visualize data from the CCJS group.
 - [ ] Update the navicon.
 
 - [ ] Map ShiftCard components into Homepage and add a key.
+- Update todaysData to be an array with each shift holding their respective variables.
 
 - [ ] Add error checking into my data calls.
 
-- [ ] Try to DRY the Motion Div container.
-
-- [ ] Clean up the TODO
+- [ ] Clean up the TODO.
+- Backend update on Historical call.
 
 ## Recently Done
-
-- [x] Try to add some padding to table if I can. 7/6/23
 
 - [x] Add a loading spinner OR skeleton while pages loading. 7/6/23
 
 - [x] Look into caching data. 7/5/23
-
-- [x] Add padding to sides of main Shift Cards. 7/5/23
 
 - [x] Historical page needs to properly handle user manipulating search query. 7/3/23
 
