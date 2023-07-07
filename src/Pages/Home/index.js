@@ -39,30 +39,17 @@ const Home = () => {
     >
       <Title>Today's shift</Title>
       <CardBox>
-        <ShiftCard 
-          title={'Set-up'}
-          time={todaysData.setupTime} 
-          signedUp={todaysData.setupVanCount} 
-          comments={todaysData.setupComments} 
-        />
-        <ShiftCard 
-          title={'1st Shift'} 
-          time={todaysData.firstShiftTime} 
-          signedUp={todaysData.firstShiftOTGCount + todaysData.firstShiftDriverCount} 
-          comments={todaysData.firstShiftComments} 
-        />
-        <ShiftCard 
-          title={'2nd Shift'} 
-          time={todaysData.secondShiftTime} 
-          signedUp={todaysData.secondShiftOTGCount + todaysData.secondShiftDriverCount} 
-          comments={todaysData.secondShiftComments} 
-        />
-        <ShiftCard 
-          title={'Breakdown'} 
-          time={todaysData.breakdownTime} 
-          signedUp={todaysData.breakdownVanCount} 
-          comments={todaysData.breakdownComments} 
-        />
+        {todaysData.map((shift) => {
+          return (
+            <ShiftCard
+              key={shift.title}
+              title={shift.title}
+              time={shift.time} 
+              signedUp={shift.signedUp} 
+              comments={shift.comments} 
+            />
+          )
+        })}
       </CardBox>
     </Container>
   );
