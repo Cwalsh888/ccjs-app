@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from 'react-router-dom';
 import { useQuery } from "react-query";
 
-import { convertData } from '@utils';
 import { Title } from "@common";
-import { Loading } from "@components";
+import { Loading, Error } from "@components";
+import { convertData } from '@utils';
 
 import { Container, FlexBox, FlexItems } from "./styled";
 
@@ -15,12 +15,13 @@ const Historical = () => {
   const [searchParams] = useSearchParams();
   const emptyblocks = [null, null, null, null, null, null];
 
-  const { data, status, isLoading } = useQuery(['past', days], async () => {
-    const res = await fetch(`https://ccjs-server.onrender.com/getHistoricalData?` +
-                new URLSearchParams({
-                  days: days
-                }));
-    return res.json();
+  const { data, isError, isLoading } = useQuery(['past', days], async () => {
+    if (days) {
+      const res = await fetch(`https://ccjs-server.onrender.com/getHistoricalData?` +
+        new URLSearchParams({ days: days }));
+
+      return res.json();
+    }
   });
 
   // Wrapper around searchParams into days, otherwise searchParams causes 2 network calls. React-router bug. 
@@ -39,11 +40,18 @@ const Historical = () => {
   }, [historicaldata]);
 
   useEffect(() => {
-    console.log(data);
     if (data) {
-      setHistoricalData(convertData(data.data)); // TODO: Clean up
+      setHistoricalData(convertData(data));
     }
   }, [data])
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (isError) {
+    return <Error />;
+  }
 
   return (
     <Container
@@ -53,36 +61,33 @@ const Historical = () => {
       transition={{ duration: .25 }}
     >
       <Title>Past Shifts</Title>
-      {isLoading ? <Loading /> : 
-      (
-        <FlexBox>
-          <FlexItems>M</FlexItems>
-          <FlexItems>Tu</FlexItems>
-          <FlexItems>W</FlexItems>
-          <FlexItems>Th</FlexItems>
-          <FlexItems>F</FlexItems>
-          <FlexItems>Sa</FlexItems>
-          <FlexItems>Su</FlexItems>
-          {emptyblocks.slice(6 - weekday).map((item, idx) => (
-            <FlexItems key={idx} color={"black"}>
-              {item}
-            </FlexItems>
-          ))}
-          {historicaldata.map((item) => (
-            <FlexItems
-              key={item.date}
-              color={item.fullDay ? "#6F9838" : item.halfDay ? "#E7E74B" : "#E43131"}
-            >
-              {item.month}/{item.day}
-            </FlexItems>
-          ))}
-          {emptyblocks.map((item, idx) => (
-            <FlexItems key={idx} color={"black"}>
-              {item}
-            </FlexItems>
-          ))}
-        </FlexBox>
-      )}
+      <FlexBox>
+        <FlexItems>M</FlexItems>
+        <FlexItems>Tu</FlexItems>
+        <FlexItems>W</FlexItems>
+        <FlexItems>Th</FlexItems>
+        <FlexItems>F</FlexItems>
+        <FlexItems>Sa</FlexItems>
+        <FlexItems>Su</FlexItems>
+        {emptyblocks.slice(6 - weekday).map((item, idx) => (
+          <FlexItems key={idx} color={"black"}>
+            {item}
+          </FlexItems>
+        ))}
+        {historicaldata.map((item) => (
+          <FlexItems
+            key={item.date}
+            color={item.fullDay ? "#6F9838" : item.halfDay ? "#E7E74B" : "#E43131"}
+          >
+            {item.month}/{item.day}
+          </FlexItems>
+        ))}
+        {emptyblocks.map((item, idx) => (
+          <FlexItems key={idx} color={"black"}>
+            {item}
+          </FlexItems>
+        ))}
+      </FlexBox>
     </Container>
   );
 };

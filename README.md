@@ -23,12 +23,9 @@ A project to visualize data from the CCJS group.
 - [ ] Map ShiftCard components into Homepage and add a key.
 - Update todaysData to be an array with each shift holding their respective variables.
 
-- [ ] Add error checking into my data calls.
-
-- [ ] Clean up the TODO.
-- Backend update on Historical call.
-
 ## Recently Done
+
+- [x] Add error checking into my data calls. 7/7/23
 
 - [x] Add a loading spinner OR skeleton while pages loading. 7/6/23
 
