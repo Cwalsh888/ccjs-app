@@ -4,6 +4,11 @@ import { motion } from "framer-motion";
 export const Container = styled(motion.div)`
   /* border: 5px solid purple; */
   height: 100%;
+  padding: 0 5em;
+
+  @media (max-width: 425px) {
+    padding: 0 1.5em;
+  }
 `;
 
 export const FlexBox = styled.div`

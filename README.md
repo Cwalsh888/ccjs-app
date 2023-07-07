@@ -24,13 +24,13 @@ A project to visualize data from the CCJS group.
 
 - [ ] Add error checking into my data calls.
 
-- [ ] Try to add some padding to table if I can.
-
-- [ ] Move pages container outside of them to so only have the animation thing once.
+- [ ] Try to DRY the Motion Div container.
 
 - [ ] Clean up the TODO
 
 ## Recently Done
+
+- [x] Try to add some padding to table if I can. 7/6/23
 
 - [x] Add a loading spinner OR skeleton while pages loading. 7/6/23
 
