@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from 'react-router-dom';
 import { useQuery } from "react-query";
 
-import { Title } from "@common";
-import { Loading, Error } from "@components";
+import { Loading, Error, Title } from "@components";
 import { convertData } from '@utils';
 
+import { fetchData } from "./api";
 import { Container, FlexBox, FlexItems } from "./styled";
 
 const Historical = () => {
@@ -15,14 +15,7 @@ const Historical = () => {
   const [searchParams] = useSearchParams();
   const emptyblocks = [null, null, null, null, null, null];
 
-  const { data, isError, isLoading } = useQuery(['past', days], async () => {
-    if (days) {
-      const res = await fetch(`https://ccjs-server.onrender.com/getHistoricalData?` +
-        new URLSearchParams({ days: days }));
-
-      return res.json();
-    }
-  });
+  const { data, isError, isLoading } = useQuery(['past', days], () => fetchData(days));
 
   // Wrapper around searchParams into days, otherwise searchParams causes 2 network calls. React-router bug. 
   // set --> null --> set = 2 network calls.

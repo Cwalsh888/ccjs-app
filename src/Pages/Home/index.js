@@ -1,16 +1,11 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "react-query";
 
-import { Title } from "@common";
-import { ShiftCard, Loading, Error } from "@components";
+import { ShiftCard, Loading, Error, Title } from "@components";
 import { convertTodaysData } from "@utils";
 
+import { fetchData } from "./api";
 import { Container, CardBox } from "./styled";
-
-const fetchData = async () => {
-  const res = await fetch("https://ccjs-server.onrender.com/getTodaysData");
-  return res.json();
-};
 
 const Home = () => {
   const [todaysData, setTodaysData] = useState([]);

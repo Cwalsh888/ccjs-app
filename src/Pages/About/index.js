@@ -1,4 +1,4 @@
-import { Title } from "@common";
+import { Title } from "@components";
 
 import { Container, Summary } from "./styled";
 
