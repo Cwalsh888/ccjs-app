@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 
 export const Container = styled(motion.div)`
   /* border: 5px solid purple; */
+  height: 100%;
 `;
 
 export const FlexBox = styled.div`
@@ -23,8 +24,4 @@ export const FlexItems = styled.div`
   @media (max-width: 425px) {
     font-size: 0.73em;
   }
-`;
-
-export const Loading = styled.div`
-  font-size: 4em;
 `;

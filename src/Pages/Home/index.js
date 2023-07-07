@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { useQuery } from "react-query";
 
 import { Title } from "@common";
-import { ShiftCard } from "@components";
+import { ShiftCard, Loading } from "@components";
 import { convertTodaysData } from "@utils";
 
-import { Container, CardBox, Loading } from "./styled";
+import { Container, CardBox } from "./styled";
 
 const fetchData = async () => {
   const res = await fetch("https://ccjs-server.onrender.com/getTodaysData");
@@ -30,9 +30,8 @@ const Home = () => {
       transition={{ duration: .35 }}
     >
       <Title>Today's shift</Title>
-      {isLoading ? (
-        <Loading>This page is loading! Give it 5 seconds.</Loading>
-      ) : (
+      {isLoading ? <Loading /> : 
+      (
         <>
           <CardBox>
             <ShiftCard 

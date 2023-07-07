@@ -20,7 +20,3 @@ export const CardBox = styled.div`
   }
   /* border: 10px solid blue; */
 `;
-
-export const Loading = styled.div`
-  font-size: 4em;
-`;

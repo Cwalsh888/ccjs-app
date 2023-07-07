@@ -4,8 +4,9 @@ import { useQuery } from "react-query";
 
 import { convertData } from '@utils';
 import { Title } from "@common";
+import { Loading } from "@components";
 
-import { Container, FlexBox, FlexItems, Loading } from "./styled";
+import { Container, FlexBox, FlexItems } from "./styled";
 
 const Historical = () => {
   const [historicaldata, setHistoricalData] = useState([]);
@@ -52,9 +53,8 @@ const Historical = () => {
       transition={{ duration: .45 }}
     >
       <Title>Past Shifts</Title>
-      {isLoading ? (
-        <Loading>This page is loading! Give it 5 seconds.</Loading>
-      ) : (
+      {isLoading ? <Loading /> : 
+      (
         <FlexBox>
           <FlexItems>M</FlexItems>
           <FlexItems>Tu</FlexItems>
