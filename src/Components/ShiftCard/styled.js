@@ -6,7 +6,7 @@ export const Card = styled.div`
   font-size: 1.5em;
   justify-content: center;
   align-items: center;
-  background-color: ${(props) => (props.satisfied ? "#6F9838" : "#E43131")};
+  background-color: ${(props) => (props.satisfied ? "#b5db82" : "#e57070")};
   border: 2px solid black;
   border-radius: 1em;
 
@@ -17,6 +17,7 @@ export const Card = styled.div`
 
 export const LeftSide = styled.div`
   width: 50%;
+  padding: 0 1em;
   border-right: 1.5px solid black;
 `;
 

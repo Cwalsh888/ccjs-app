@@ -20,7 +20,8 @@ export const FlexBox = styled.div`
 
 export const FlexItems = styled.div`
   flex: 1 0 14%;
-  border: 1px solid black;
+  border: 1px solid white;
+  border-radius: 1em;
   background-color: ${(props) => props.color || "#9C83BF"};
 
   @media (max-width: 425px) {

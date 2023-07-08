@@ -32,6 +32,14 @@ export const NavButton = styled(Link)`
   border: 2px outset #736b5e;
   border-radius: 1em;
 
+  &:hover {
+    background-color: #c1a5e7;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
   @media (max-width: 425px) {
     font-size: .9em;
   }
