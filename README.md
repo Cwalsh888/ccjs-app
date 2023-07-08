@@ -22,6 +22,8 @@ A project to visualize data from the CCJS group.
 
 - [ ] Update the navicon.
 
+- [ ] "Freeze" first row of table.
+
 ## Recently Done
 
 - [x] Map ShiftCard components into Homepage and add a key. 7/7/23
