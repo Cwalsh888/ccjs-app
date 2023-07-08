@@ -16,7 +16,7 @@ const FunFacts = () => {
         <ul>
           <li>Rough number of total unique volunteers</li>
           <li>Average number of unique volunteers per year</li>
-          <li>Most days Jail Support ran in a row</li>
+          <li>Most days Support ran in a row</li>
           <li>Add the percentage for each days' "fullshift" rate</li>
         </ul>
       </Summary>
