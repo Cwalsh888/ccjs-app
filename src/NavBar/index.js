@@ -12,7 +12,8 @@ const NavBar = () => {
   // eslint-disable-next-line
   const [searchParams, setSearchParams] = useSearchParams();
   const [days, setDays] = useState(60);
-  const isHistoryPage = useLocation().pathname.startsWith("/historical");
+  const pathName = useLocation().pathname;
+  const isHistoryPage = pathName === '/historical';
 
   useEffect(() => {
     if (isHistoryPage) {
@@ -43,10 +44,10 @@ const NavBar = () => {
         </NavButton>
       </SideMenu>
       <NavRow>
-        <NavButton to="/">Today</NavButton>
-        <NavButton to="/historical">Past Data</NavButton>
-        <NavButton to="/funfacts">More Data</NavButton>
-        <NavButton to="/about">About</NavButton>
+        <NavButton active={pathName === '/'} to="/">Today</NavButton>
+        <NavButton active={isHistoryPage} to="/historical">Past Data</NavButton>
+        <NavButton active={pathName === '/funfacts'} to="/funfacts">More Data</NavButton>
+        <NavButton active={pathName === '/about'} to="/about">About</NavButton>
       </NavRow>
     </NavigationBox>
   );

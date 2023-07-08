@@ -28,7 +28,7 @@ export const NavButton = styled(Link)`
   font-weight: bold;
   color: black;
   text-decoration: none;
-  background-color: #9c83bf;
+  background-color: ${(props) => (props.active ? "#7e53b7" : "#9c83bf")};
   border: 2px outset #736b5e;
   border-radius: 1em;
 
