@@ -9,13 +9,10 @@ const ShiftCard = (props) => {
 
   const satisfied = (signedUp, title) => {
     if (title === '1st Shift' || title === '2nd Shift') {
-      if (signedUp > 1) {
-        return true;
-      }
+      if (signedUp > 1) return true;
+      
     } else {
-      if (signedUp > 0) {
-        return true;
-      } 
+      if (signedUp > 0) return true; 
     }
 
     return false;
