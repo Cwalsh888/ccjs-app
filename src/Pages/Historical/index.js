@@ -14,6 +14,8 @@ const Historical = () => {
   const [days, setDays] = useState();
   const [searchParams] = useSearchParams();
   const emptyblocks = [null, null, null, null, null, null];
+  const daysOfTheWeek = ['M', 'Tu', 'W', 'Th', 'F', 'Sa', 'Su'];
+  const DAYS_IN_WEEK = 7;
 
   const { data, isError, isLoading } = useQuery(['past', days], () => fetchData(days));
 
@@ -55,18 +57,10 @@ const Historical = () => {
     >
       <Title>Past Shifts</Title>
       <FlexBox>
-        <FlexItems>M</FlexItems>
-        <FlexItems>Tu</FlexItems>
-        <FlexItems>W</FlexItems>
-        <FlexItems>Th</FlexItems>
-        <FlexItems>F</FlexItems>
-        <FlexItems>Sa</FlexItems>
-        <FlexItems>Su</FlexItems>
-        {emptyblocks.slice(6 - weekday).map((item, idx) => (
-          <FlexItems key={idx} color={"black"}>
-            {item}
-          </FlexItems>
+        {daysOfTheWeek.map((days) => (
+          <FlexItems key={days} color={'#9C83BF'}>{days}</FlexItems>
         ))}
+        {emptyblocks.slice(DAYS_IN_WEEK - weekday).map((item, idx) => (<FlexItems key={idx}></FlexItems>))}
         {historicaldata.map((item) => (
           <FlexItems
             key={item.date}
@@ -75,11 +69,7 @@ const Historical = () => {
             {item.month}/{item.day}
           </FlexItems>
         ))}
-        {emptyblocks.map((item, idx) => (
-          <FlexItems key={idx} color={"black"}>
-            {item}
-          </FlexItems>
-        ))}
+        {emptyblocks.map((item, idx) => (<FlexItems key={idx}></FlexItems>))}
       </FlexBox>
     </Container>
   );

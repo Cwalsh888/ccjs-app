@@ -44,10 +44,10 @@ const NavBar = () => {
         </NavButton>
       </SideMenu>
       <NavRow>
-        <NavButton active={pathName === '/'} to="/">Today</NavButton>
-        <NavButton active={isHistoryPage} to="/historical">Past Data</NavButton>
-        <NavButton active={pathName === '/funfacts'} to="/funfacts">More Data</NavButton>
-        <NavButton active={pathName === '/about'} to="/about">About</NavButton>
+        <NavButton $active={pathName === '/'} to="/">Today</NavButton>
+        <NavButton $active={isHistoryPage} to="/historical">Past Data</NavButton>
+        <NavButton $active={pathName === '/funfacts'} to="/funfacts">More Data</NavButton>
+        <NavButton $active={pathName === '/about'} to="/about">About</NavButton>
       </NavRow>
     </NavigationBox>
   );

@@ -22,7 +22,7 @@ export const FlexItems = styled.div`
   flex: 1 0 14%;
   border: 1px solid white;
   border-radius: 1em;
-  background-color: ${(props) => props.color || "#9C83BF"};
+  background-color: ${(props) => props.color || "white"};
 
   @media (max-width: 425px) {
     font-size: 0.73em;
