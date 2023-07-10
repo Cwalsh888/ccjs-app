@@ -50,7 +50,7 @@ export const convertTodaysData = (data) => {
     secondShift.title = '2nd Shift';
     secondShift.driverCount = secondShiftDriverCount ? secondShiftDriverCount : null;
     secondShift.OTGCount = secondShiftOTGCount ? secondShiftOTGCount : null;
-    secondShift.signedUp =  secondShift.secondShiftDriverCount +  secondShift.secondShiftOTGCount;
+    secondShift.signedUp =  secondShift.driverCount +  secondShift.OTGCount;
     secondShift.comments = secondShiftComments?.length > 0 ? secondShiftComments : null;
     secondShift.time = secondShiftTime ? secondShiftTime : null;
     breakdown.title = 'Breakdown';
