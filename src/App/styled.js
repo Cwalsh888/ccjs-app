@@ -10,7 +10,6 @@ export const Container = styled(QueryClientProvider)`
   flex-direction: column;
   gap: 1em;
   background-color: #c3bfb5; // #3e4346 DARK MODE
-  /* border: 5px solid red; */
 `;
 
 export const PageContainer = styled.div`
@@ -18,7 +17,6 @@ export const PageContainer = styled.div`
   height: 75%;
   text-align: center;
   overflow-y: auto;
-  /* border: 5px solid cyan; */
 `;
 
 export const Title = styled.h1`
@@ -27,7 +25,6 @@ export const Title = styled.h1`
   text-align: center;
   color: #613898;
   margin: 0;
-  /* border: 3px solid orange; */
 
   @media (max-width: 425px) {
     font-size: 2em;
