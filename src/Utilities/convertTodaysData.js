@@ -6,14 +6,14 @@ export const convertTodaysData = (data) => {
     const secondShift = {};
     const breakdown = {};
 
-    const setUpCar = data.find((ele) => ele.name === "set up car (daily supply needs pickup)");
-    const setupVan = data.find((ele) => ele.name === "set up van driver") ? data.find((ele) => ele.name === "set up van driver") : null;
-    const firstShiftDrivers = data.find((ele) => ele.name === "driving (first shift)");
-    const firstShiftOTG = data.find((ele) => ele.name === "otg (first shift)");
-    const secondShiftDrivers = data.find((ele) => ele.name === "driving (second shift)");
-    const secondShiftOTG = data.find((ele) => ele.name === "otg (second shift)");
-    const breakdownCar = data.find((ele) => ele.name === "breakdown car");
-    const breakdownVan = data.find((ele) => ele.name === "breakdown van driver") ? data.find((ele) => ele.name === "breakdown van driver") : null;
+    const setUpCar = data.find((shift) => shift.name === "set up car (daily supply needs pickup)");
+    const setupVan = data.find((shift) => shift.name === "set up van driver") ? data.find((shift) => shift.name === "set up van driver") : null;
+    const firstShiftDrivers = data.find((shift) => shift.name === "driving (first shift)");
+    const firstShiftOTG = data.find((shift) => shift.name === "otg (first shift)");
+    const secondShiftDrivers = data.find((shift) => shift.name === "driving (second shift)");
+    const secondShiftOTG = data.find((shift) => shift.name === "otg (second shift)");
+    const breakdownCar = data.find((shift) => shift.name === "breakdown car");
+    const breakdownVan = data.find((shift) => shift.name === "breakdown van driver") ? data.find((shift) => shift.name === "breakdown van driver") : null;
     
     const setupVanCount = setupVan?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
     const firstShiftDriverCount = firstShiftDrivers?.jobassignments.reduce((acc, curr) => acc + curr.quantity,0);

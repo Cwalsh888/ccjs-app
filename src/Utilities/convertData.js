@@ -2,19 +2,19 @@ export const convertData = (data) => {
   let result = [];
 
   if (data && data.length > 0) {
-    result = data.map((ele) => {
+    result = data.map((item) => {
       const container = {};
 
-      const legacyFirstShiftOTG = ele.jobs.find((ele) => ele.name === "otg");
-      const legacyFirstShiftDrivers = ele.jobs.find((ele) => ele.name === "driving");
-      const legacySecondShiftDrivers = ele.jobs.findLast((ele) => ele.name === "driving");
-      const legacySecondShiftOTG = ele.jobs.findLast((ele) => ele.name === "otg");
-      const setupVan = ele.jobs.find((ele) => ele.name === "set up van driver");
-      const firstShiftDrivers = ele.jobs.find((ele) => ele.name === "driving (first shift)");
-      const firstShiftOTG = ele.jobs.find((ele) => ele.name === "otg (first shift)");
-      const secondShiftDrivers = ele.jobs.find((ele) => ele.name === "driving (second shift)");
-      const secondShiftOTG = ele.jobs.find((ele) => ele.name === "otg (second shift)");
-      const breakdownVan = ele.jobs.find((ele) => ele.name === "breakdown van driver");
+      const legacyFirstShiftOTG = item.jobs.find((shift) => shift.name === "otg");
+      const legacyFirstShiftDrivers = item.jobs.find((shift) => shift.name === "driving");
+      const legacySecondShiftDrivers = item.jobs.findLast((shift) => shift.name === "driving");
+      const legacySecondShiftOTG = item.jobs.findLast((shift) => shift.name === "otg");
+      const setupVan = item.jobs.find((shift) => shift.name === "set up van driver");
+      const firstShiftDrivers = item.jobs.find((shift) => shift.name === "driving (first shift)");
+      const firstShiftOTG = item.jobs.find((shift) => shift.name === "otg (first shift)");
+      const secondShiftDrivers = item.jobs.find((shift) => shift.name === "driving (second shift)");
+      const secondShiftOTG = item.jobs.find((shift) => shift.name === "otg (second shift)");
+      const breakdownVan = item.jobs.find((shift) => shift.name === "breakdown van driver");
 
       const legacyFirstShiftDriverCount =legacyFirstShiftDrivers?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
       const legacyFirstShiftOTGCount = legacyFirstShiftOTG?.jobassignments.reduce((acc, curr) => acc + curr.quantity, 0);
@@ -38,9 +38,9 @@ export const convertData = (data) => {
         (legacySecondShiftDriverCount + legacySecondShiftOTGCount >= 2 ||
           secondShiftDriverCount + secondShiftOTGCount >= 2);
 
-      container.date = ele.edate ? ele.edate : null;
-      container.month = ele.edate ? ele.edate.substring(5, 7) : null;
-      container.day = ele.edate ? ele.edate.substring(8, 10) : null;
+      container.date = item.edate ? item.edate : null;
+      container.month = item.edate ? item.edate.substring(5, 7) : null;
+      container.day = item.edate ? item.edate.substring(8, 10) : null;
       container.setupVanCount = setupVanCount ? setupVanCount : null;
       container.firstShiftDriverCount = firstShiftDriverCount ? firstShiftDriverCount : null;
       container.firstShiftOTGCount = firstShiftOTGCount ? firstShiftOTGCount : null;

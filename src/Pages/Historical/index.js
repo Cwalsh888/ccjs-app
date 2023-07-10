@@ -9,13 +9,13 @@ import { fetchData } from "./api";
 import { Container, FlexBox, FlexItems } from "./styled";
 
 const Historical = () => {
+  const DAYS_IN_WEEK = 7;
   const [historicaldata, setHistoricalData] = useState([]);
   const [weekday, setWeekday] = useState(0);
   const [days, setDays] = useState();
   const [searchParams] = useSearchParams();
   const emptyblocks = [null, null, null, null, null, null];
   const daysOfTheWeek = ['M', 'Tu', 'W', 'Th', 'F', 'Sa', 'Su'];
-  const DAYS_IN_WEEK = 7;
 
   const { data, isError, isLoading } = useQuery(['past', days], () => fetchData(days));
 

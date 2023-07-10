@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useSearchParams, useLocation } from 'react-router-dom'
+import { useSearchParams, useLocation, useMatch } from 'react-router-dom'
 
 import {
   NavigationBox,
@@ -10,8 +10,9 @@ import {
 
 const NavBar = () => {
   // eslint-disable-next-line
+  const INITIAL_DAYS_SHOWN = 60;
   const [searchParams, setSearchParams] = useSearchParams();
-  const [days, setDays] = useState(60);
+  const [days, setDays] = useState(INITIAL_DAYS_SHOWN);
   const pathName = useLocation().pathname;
   const isHistoryPage = pathName === '/historical';
 
@@ -31,7 +32,7 @@ const NavBar = () => {
   }
 
   const resetDays = () => {
-    setDays(60);
+    setDays(INITIAL_DAYS_SHOWN);
   }
 
   return (
@@ -44,10 +45,10 @@ const NavBar = () => {
         </NavButton>
       </SideMenu>
       <NavRow>
-        <NavButton $active={pathName === '/'} to="/">Today</NavButton>
-        <NavButton $active={isHistoryPage} to="/historical">Past Data</NavButton>
-        <NavButton $active={pathName === '/funfacts'} to="/funfacts">More Data</NavButton>
-        <NavButton $active={pathName === '/about'} to="/about">About</NavButton>
+        <NavButton $active={useMatch('/')} to="/">Today</NavButton>
+        <NavButton $active={useMatch('/historical')} to="/historical">Past Data</NavButton>
+        <NavButton $active={useMatch('/funfacts')} to="/funfacts">More Data</NavButton>
+        <NavButton $active={useMatch('/about')} to="/about">About</NavButton>
       </NavRow>
     </NavigationBox>
   );
