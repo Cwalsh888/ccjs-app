@@ -14,6 +14,12 @@ A project to visualize data from the CCJS group.
 
 - [ ] Site modern redesign.
 
+- [ ] Rough Design for Fun Facts page
+- Header that you can click arrows on either side that control the timeframe shown on page
+  - Alltime, this year, last year, this month, this week, etc
+  - A bunch of stats throughout the page that update depending on the shown timeframe
+
+
 ## Tech Debt
 
 - [ ] Custom edit prettier to my preference.
