@@ -9,7 +9,7 @@ import { fetchData } from "./api";
 import { Container, FlexBox, FlexItems } from "./styled";
 
 const Historical = () => {
-  const DAYS_IN_WEEK = 7;
+  const DAYS_IN_WEEK = 6;
   const [historicaldata, setHistoricalData] = useState([]);
   const [weekday, setWeekday] = useState(0);
   const [days, setDays] = useState();
