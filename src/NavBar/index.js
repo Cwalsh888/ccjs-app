@@ -15,9 +15,11 @@ const NavBar = () => {
   const [days, setDays] = useState(INITIAL_DAYS_SHOWN);
   const pathName = useLocation().pathname;
   const isHistoryPage = pathName === '/historical';
+  const isFunPage = pathName === '/funfacts';
+  const isDaysPage = pathName === '/historical' || pathName === '/funfacts';
 
   useEffect(() => {
-    if (isHistoryPage) {
+    if (isDaysPage) {
       if (searchParams.get('days')) {
         setDays(parseInt(searchParams.get('days')));
       } else {
@@ -25,7 +27,7 @@ const NavBar = () => {
       }
     }
     // eslint-disable-next-line
-  }, [days, isHistoryPage])
+  }, [days, isHistoryPage, isFunPage])
 
   const addDays = (num) => {
     setDays(days + num);
@@ -37,7 +39,7 @@ const NavBar = () => {
 
   return (
     <NavigationBox>
-      <SideMenu hidden={!isHistoryPage}>
+      <SideMenu hidden={!isDaysPage}>
         <NavButton onClick={() => resetDays()}>Reset Table</NavButton>
         <NavButton onClick={() => addDays(7)}>Add 1 week</NavButton>
         <NavButton onClick={() => addDays(180)}>
