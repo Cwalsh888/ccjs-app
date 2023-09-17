@@ -19,7 +19,6 @@ A project to visualize data from the CCJS group.
   - Alltime, this year, last year, this month, this week, etc
   - A bunch of stats throughout the page that update depending on the shown timeframe
 
-
 ## Tech Debt
 
 - [ ] Custom edit prettier to my preference.
@@ -35,15 +34,3 @@ A project to visualize data from the CCJS group.
 - [x] Map ShiftCard components into Homepage and add a key. 7/7/23
 
 - [x] Add error checking into my data calls. 7/7/23
-
-- [x] Add a loading spinner OR skeleton while pages loading. 7/6/23
-
-- [x] Look into caching data. 7/5/23
-
-- [x] Historical page needs to properly handle user manipulating search query. 7/3/23
-
-- [x] Seperate the Homepage code into components. 7/3/23
-
-- [x] Can load the Historical data page from the start date in the URL. 7/2/23
-
-- [x] Reformat Historical page to have a dynamic table again. 7/2/23
