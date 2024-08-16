@@ -10,7 +10,7 @@ import { Container, FlexBox, FlexItems } from "./styled";
 
 const Historical = () => {
   const DAYS_IN_WEEK = 6;
-  const [historicaldata, setHistoricalData] = useState([]);
+  const [historicalData, setHistoricalData] = useState([]);
   const [weekday, setWeekday] = useState(0);
   const [days, setDays] = useState();
   const [searchParams] = useSearchParams();
@@ -29,10 +29,10 @@ const Historical = () => {
   }, [searchParams.get('days')]);
 
   useEffect(() => {
-    if (historicaldata[0]?.date) {
-      setWeekday(new Date(historicaldata[0].date).getDay());
+    if (historicalData[0]?.date) {
+      setWeekday(new Date(historicalData[0].date).getDay());
     }
-  }, [historicaldata]);
+  }, [historicalData]);
 
   useEffect(() => {
     if (data) {
@@ -61,7 +61,7 @@ const Historical = () => {
           <FlexItems key={days} color={'#9C83BF'}>{days}</FlexItems>
         ))}
         {emptyblocks.slice(DAYS_IN_WEEK - weekday).map((item, idx) => (<FlexItems key={idx}></FlexItems>))}
-        {historicaldata.map((item) => (
+        {historicalData.map((item) => (
           <FlexItems
             key={item.date}
             color={item.fullDay ? "#b5db82" : item.halfDay ? "#eded80" : "#e57070"}

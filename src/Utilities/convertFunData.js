@@ -4,7 +4,6 @@ export const convertFunData = (data) => {
   const volunteers = new Set();
 
   if (data && data.length > 0) {
-    console.log(data);
     result.days = data.map((item) => {
       const container = {};
 
@@ -65,6 +64,5 @@ export const convertFunData = (data) => {
   result.streak = result.days.reduce((a,b) => a.streak > b.streak ? a : b).streak;
   volunteers.delete(undefined);
   result.volunteers = volunteers;
-  console.log(result);
   return result;
 };

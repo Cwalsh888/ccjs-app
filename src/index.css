@@ -15,7 +15,14 @@ body {
 }
 
 #root {
+  width: 100%;
   height: 100%;
+  padding: 1em;
+  padding-top: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  background-color: #c3bfb5;
 }
 
 * {
