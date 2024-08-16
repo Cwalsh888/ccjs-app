@@ -10,12 +10,13 @@ import { Container, FlexBox, FlexItems } from "./styled";
 
 const Historical = () => {
   const DAYS_IN_WEEK = 6;
+  const emptyBlocks = [null, null, null, null, null, null];
+  const daysOfTheWeek = ['M', 'Tu', 'W', 'Th', 'F', 'Sa', 'Su'];
+
   const [historicalData, setHistoricalData] = useState([]);
   const [weekday, setWeekday] = useState(0);
   const [days, setDays] = useState();
   const [searchParams] = useSearchParams();
-  const emptyblocks = [null, null, null, null, null, null];
-  const daysOfTheWeek = ['M', 'Tu', 'W', 'Th', 'F', 'Sa', 'Su'];
 
   const { data, isError, isLoading } = useQuery(['past', days], () => fetchData(days));
 
@@ -60,7 +61,7 @@ const Historical = () => {
         {daysOfTheWeek.map((days) => (
           <FlexItems key={days} color={'#9C83BF'}>{days}</FlexItems>
         ))}
-        {emptyblocks.slice(DAYS_IN_WEEK - weekday).map((item, idx) => (<FlexItems key={idx}></FlexItems>))}
+        {emptyBlocks.slice(DAYS_IN_WEEK - weekday).map((item, idx) => (<FlexItems key={idx}></FlexItems>))}
         {historicalData.map((item) => (
           <FlexItems
             key={item.date}
@@ -69,7 +70,7 @@ const Historical = () => {
             {item.month}/{item.day}
           </FlexItems>
         ))}
-        {emptyblocks.map((item, idx) => (<FlexItems key={idx}></FlexItems>))}
+        {emptyBlocks.map((item, idx) => (<FlexItems key={idx}></FlexItems>))}
       </FlexBox>
     </Container>
   );

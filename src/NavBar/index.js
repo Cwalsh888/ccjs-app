@@ -42,9 +42,7 @@ const NavBar = () => {
       <SideMenu hidden={!isDaysPage}>
         <NavButton onClick={() => resetDays()}>Reset Table</NavButton>
         <NavButton onClick={() => addDays(7)}>Add 1 week</NavButton>
-        <NavButton onClick={() => addDays(180)}>
-          Add 6 months
-        </NavButton>
+        <NavButton onClick={() => addDays(180)}>Add 6 months</NavButton>
       </SideMenu>
       <NavRow>
         <NavButton $active={useMatch('/')} to="/">Today</NavButton>
